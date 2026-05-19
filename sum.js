@@ -1,14 +1,18 @@
 /**
- * Tính tổng hai số
- * @param {number} a 
- * @param {number} b 
- * @returns {number}
+ * Kiểm tra số chẵn hay lẻ
+ * @param {number} n 
+ * @returns {string}
  */
-function sum(a, b) {
-    return a + b;
+function checkEvenOdd(n) {
+    if (n % 2 === 0) {
+        return "Số chẵn";
+    } else {
+        return "Số lẻ";
+    }
 }
 
 // Ví dụ sử dụng
-const num1 = 5;
-const num2 = 10;
-console.log(`Tổng của ${num1} và ${num2} là: ${sum(num1, num2)}`);
+const num = 5;
+
+console.log(`${num} là ${checkEvenOdd(num)}`);
+
