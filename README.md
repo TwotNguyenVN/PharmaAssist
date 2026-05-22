@@ -153,7 +153,7 @@ Database
 
 ### Database
 
-- PostgreSQL hoặc MySQL
+- Supabase (Cloud PostgreSQL) làm CSDL quan hệ chính
 - Prisma ORM hoặc TypeORM
 - Neo4j cho Knowledge Graph nếu triển khai phần nâng cao
 
@@ -232,7 +232,7 @@ pharmaassist-ai-intelligence/
 
 - Node.js 18+
 - npm hoặc yarn
-- PostgreSQL hoặc MySQL
+- Tài khoản Supabase (để cung cấp Cloud PostgreSQL)
 - Neo4j optional nếu chạy Knowledge Graph
 - Git
 
@@ -259,7 +259,12 @@ Cấu hình file `.env`:
 
 ```env
 PORT=3000
-DATABASE_URL="postgresql://username:password@localhost:5432/pharmaassist"
+# URL kết nối trực tiếp đến PostgreSQL trên Supabase
+DATABASE_URL="postgresql://postgres:[password]@db.[project-id].supabase.co:5432/postgres"
+
+# Thông tin API Supabase (khi cần dùng client SDK)
+SUPABASE_URL="https://[project-id].supabase.co"
+SUPABASE_ANON_KEY="your-anon-key"
 
 JWT_SECRET="change_me_in_local"
 

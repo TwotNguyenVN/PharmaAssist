@@ -264,7 +264,7 @@ Bảng dưới đây dùng để theo dõi trạng thái hiện tại của từ
 | Actor chính | Đã chốt | Admin, Nhân viên nhà thuốc, Nhân viên kho, Khách hàng |
 | Công nghệ backend | Chưa chốt | Cần chọn Node.js/NestJS hoặc Spring Boot |
 | Công nghệ frontend | Chưa chốt hoàn toàn | Đề xuất React hoặc Next.js |
-| Database quan hệ | Chưa chốt | Đề xuất PostgreSQL nếu làm nâng cao, MySQL nếu muốn đơn giản |
+| Database quan hệ | Đã chốt | Sử dụng Supabase (Cloud PostgreSQL) làm CSDL quan hệ chính |
 | Graph Database | Chưa chốt mức triển khai | Có thể dùng Neo4j thật hoặc mô phỏng graph nếu thiếu thời gian |
 | AI Provider | Chưa chốt | Nên có MockAI bắt buộc, provider thật là tùy chọn |
 | Database schema | Đang thiết kế | Đã có nhóm bảng đề xuất, cần hoàn thiện ERD |
@@ -302,7 +302,7 @@ Bảng dưới đây dùng để theo dõi trạng thái hiện tại của từ
 |---|---|---|---|
 | Backend | Node.js / NestJS / Spring Boot | Chọn framework chính | NestJS nếu muốn kiến trúc module rõ, Spring Boot nếu nhóm mạnh Java |
 | Frontend | React / Next.js / Vue | Chọn framework UI | React hoặc Next.js để làm dashboard và POS nhanh |
-| Database | PostgreSQL / MySQL | Chọn database quan hệ | PostgreSQL nếu làm nâng cao, MySQL nếu muốn dễ triển khai |
+| Database | Supabase (Cloud PostgreSQL) | Chọn database quan hệ | Supabase cung cấp Cloud PostgreSQL, giảm tải quản lý database local |
 | ORM | Prisma / TypeORM / Sequelize / JPA | Chọn công cụ thao tác DB | Prisma cho Node.js, TypeORM cho NestJS, JPA cho Spring Boot |
 | AI Provider | MockAI / Gemini / OpenRouter / Ollama | Có dùng AI thật không | Bắt buộc có MockAI, provider thật là tùy chọn |
 | Graph | Neo4j thật / mô phỏng bằng bảng / chỉ vẽ graph UI | Mức độ triển khai graph | Nếu muốn đạt Khó/Rất Khó nên dùng Neo4j thật ở mức nhỏ |
@@ -323,7 +323,7 @@ Kiến trúc định hướng của hệ thống gồm nhiều tầng:
 | Presentation Layer | Frontend Web | Cung cấp giao diện cho Admin, nhân viên nhà thuốc, nhân viên kho |
 | Application Layer | Backend API | Xử lý request, authentication, authorization, nghiệp vụ chính |
 | Business Services | Auth, Medicine, Inventory, Sales, Rule Engine, AI, Graph, Analytics | Tách module theo nghiệp vụ |
-| Data Layer | PostgreSQL/MySQL | Lưu dữ liệu người dùng, thuốc, kho, đơn hàng, hóa đơn, AI log |
+| Data Layer | Supabase (PostgreSQL) | Lưu dữ liệu người dùng, thuốc, kho, đơn hàng, hóa đơn, AI log |
 | Graph Layer | Neo4j | Lưu quan hệ thuốc, hoạt chất, triệu chứng, tương tác |
 | AI Layer | MockAI/Gemini/OpenRouter/Ollama | Sinh nội dung hỗ trợ tham khảo |
 | Governance Layer | Guardrail, Audit Log, Prompt Management | Kiểm soát và truy vết AI |

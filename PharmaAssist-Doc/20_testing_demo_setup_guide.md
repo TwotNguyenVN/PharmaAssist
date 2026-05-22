@@ -446,7 +446,7 @@ Các test này bắt buộc phải chạy trước khi demo:
 |---|---|---|
 | Node.js | 18+ | Có nếu dùng React/Next/NestJS |
 | Java | 17+ | Nếu dùng Spring Boot |
-| PostgreSQL/MySQL | Theo nhóm chọn | Có |
+| Supabase (Cloud PostgreSQL) | Đã chốt | Có (Cloud) |
 | Neo4j | 5.x hoặc Neo4j Desktop | Nếu dùng Graph thật |
 | Git | Bắt buộc | Có |
 | Docker | Nếu dùng container | Không bắt buộc |
@@ -504,7 +504,7 @@ NEO4J_PASSWORD=
 
 | Biến | Mô tả | Ví dụ |
 |---|---|---|
-| DATABASE_URL | Chuỗi kết nối database quan hệ | postgresql://user:pass@localhost:5432/pharmaassist |
+| DATABASE_URL | Chuỗi kết nối database quan hệ đến Supabase | postgresql://postgres:[password]@db.[project-id].supabase.co:5432/postgres |
 | JWT_SECRET | Secret ký JWT | demo-secret-change-me |
 | AI_PROVIDER | Provider AI đang dùng | MockAI/Gemini/OpenRouter/Ollama |
 | AI_API_KEY | API key nếu dùng AI thật | Không commit key thật |
@@ -565,17 +565,16 @@ cd backend
 ./gradlew bootRun
 ```
 
-## 12.5. Chạy database local
+## 12.5. Khởi tạo Cơ sở dữ liệu trên Supabase
 
-Tùy nhóm chọn PostgreSQL hoặc MySQL.
-
-Ví dụ PostgreSQL:
-
-```bash
-createdb pharmaassist
-```
-
-Sau đó chạy migration và seed bằng công cụ ORM hoặc script SQL của nhóm.
+1. Truy cập [Supabase](https://supabase.com) và tạo một tài khoản miễn phí.
+2. Tạo một dự án mới (New Project). Chọn mật khẩu cho Database và khu vực (Region) phù hợp (ví dụ Singapore).
+3. Vào phần **Project Settings** -> **Database** để sao chép chuỗi kết nối Connection String (URI) dạng `DATABASE_URL`.
+4. Cập nhật chuỗi kết nối vào file `.env` của Backend.
+5. Tạo cấu trúc bảng: 
+   - Nếu dự án dùng Prisma: chạy lệnh `npx prisma db push` hoặc `npx prisma migrate dev` từ thư mục backend.
+   - Hoặc sao chép nội dung SQL DDL mẫu trong tài liệu thiết kế database và chạy trực tiếp trên công cụ **SQL Editor** trong giao diện web Supabase.
+6. Chạy lệnh seed để nạp dữ liệu mẫu: `npm run seed` hoặc chạy script seed tương ứng từ Backend.
 
 ---
 
