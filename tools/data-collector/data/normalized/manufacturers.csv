@@ -1,0 +1,10 @@
+manufacturer_code,manufacturer_name,manufacturer_slug,source_name,source_url,source_note,is_demo_data,collected_at
+MFR000001,GLENMARK,glenmark,Nhà thuốc Long Châu,https://nhathuoclongchau.com.vn/thuoc/klenzit-15g-3330.html,Dữ liệu tham khảo phục vụ đồ án PharmaAssist,true,2026-05-24T17:44:40.439Z
+MFR000002,BAYER,bayer,Nhà thuốc Long Châu,https://nhathuoclongchau.com.vn/thuoc/berocca-1515.html,Dữ liệu tham khảo phục vụ đồ án PharmaAssist,true,2026-05-24T17:44:53.747Z
+MFR000003,CÔNG TY CỔ PHẦN DƯỢC PHẨM DƯỢC LIỆU PHARMEDIC,cong-ty-co-phan-duoc-pham-duoc-lieu-pharmedic,Nhà thuốc Long Châu,https://nhathuoclongchau.com.vn/thuoc/farzincol-10mg-3786.html,Dữ liệu tham khảo phục vụ đồ án PharmaAssist,true,2026-05-24T17:45:07.950Z
+MFR000004,UPSA SAS,upsa-sas,Nhà thuốc Long Châu,https://nhathuoclongchau.com.vn/thuoc/efferalgan-500mg-1620.html,Dữ liệu tham khảo phục vụ đồ án PharmaAssist,true,2026-05-24T17:45:20.613Z
+MFR000005,DHG,dhg,Nhà thuốc Long Châu,https://nhathuoclongchau.com.vn/thuoc/clorpheniramin-4-200v-4228.html,Dữ liệu tham khảo phục vụ đồ án PharmaAssist,true,2026-05-24T17:45:33.137Z
+MFR000006,BEAUFOUR IPSEN INDUSTRIE,beaufour-ipsen-industrie,Nhà thuốc Long Châu,https://nhathuoclongchau.com.vn/thuoc/smecta-2236.html,Dữ liệu tham khảo phục vụ đồ án PharmaAssist,true,2026-05-24T17:45:52.674Z
+MFR000007,UNITED,united,Nhà thuốc Long Châu,https://nhathuoclongchau.com.vn/thuoc/kremils-s-3315.html,Dữ liệu tham khảo phục vụ đồ án PharmaAssist,true,2026-05-24T17:46:11.149Z
+MFR000008,LABORATOIRES GALDERMA,laboratoires-galderma,Nhà thuốc Long Châu,https://nhathuoclongchau.com.vn/thuoc/differin-0130mg-17372.html,Dữ liệu tham khảo phục vụ đồ án PharmaAssist,true,2026-05-24T17:46:38.000Z
+MFR000009,CÔNG TY CỔ PHẦN DƯỢC PHẨM AGIMEXPHARM,cong-ty-co-phan-duoc-pham-agimexpharm,Nhà thuốc Long Châu,https://nhathuoclongchau.com.vn/thuoc/3-b-agi-neurin-agimexpharm-10-x10.html,Dữ liệu tham khảo phục vụ đồ án PharmaAssist,true,2026-05-24T17:46:52.740Z

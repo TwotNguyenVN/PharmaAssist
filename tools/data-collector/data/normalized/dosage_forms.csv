@@ -1,0 +1,10 @@
+dosage_form_code,dosage_form_name,dosage_form_slug,source_name,source_url,source_note,is_demo_data,collected_at
+DF000001,Gel,gel,Nhà thuốc Long Châu,https://nhathuoclongchau.com.vn/thuoc/klenzit-15g-3330.html,Dữ liệu tham khảo phục vụ đồ án PharmaAssist,true,2026-05-24T17:44:40.439Z
+DF000002,Viên sủi,vien-sui,Nhà thuốc Long Châu,https://nhathuoclongchau.com.vn/thuoc/berocca-1515.html,Dữ liệu tham khảo phục vụ đồ án PharmaAssist,true,2026-05-24T17:44:53.747Z
+DF000003,Viên nén,vien-nen,Nhà thuốc Long Châu,https://nhathuoclongchau.com.vn/thuoc/farzincol-10mg-3786.html,Dữ liệu tham khảo phục vụ đồ án PharmaAssist,true,2026-05-24T17:45:07.950Z
+DF000004,Viên nén sủi bọt,vien-nen-sui-bot,Nhà thuốc Long Châu,https://nhathuoclongchau.com.vn/thuoc/efferalgan-500mg-1620.html,Dữ liệu tham khảo phục vụ đồ án PharmaAssist,true,2026-05-24T17:45:20.613Z
+DF000005,Bột pha hỗn dịch uống,bot-pha-hon-dich-uong,Nhà thuốc Long Châu,https://nhathuoclongchau.com.vn/thuoc/smecta-2236.html,Dữ liệu tham khảo phục vụ đồ án PharmaAssist,true,2026-05-24T17:45:52.674Z
+DF000006,Viên nhai,vien-nhai,Nhà thuốc Long Châu,https://nhathuoclongchau.com.vn/thuoc/kremils-s-3315.html,Dữ liệu tham khảo phục vụ đồ án PharmaAssist,true,2026-05-24T17:46:11.149Z
+DF000007,Viên nang mềm,vien-nang-mem,Nhà thuốc Long Châu,https://nhathuoclongchau.com.vn/thuoc/eugica-vien-uong-dieu-tri-ho-cam-cum-490.html,Dữ liệu tham khảo phục vụ đồ án PharmaAssist,true,2026-05-24T17:46:24.501Z
+DF000008,Kem,kem,Nhà thuốc Long Châu,https://nhathuoclongchau.com.vn/thuoc/differin-0130mg-17372.html,Dữ liệu tham khảo phục vụ đồ án PharmaAssist,true,2026-05-24T17:46:38.000Z
+DF000009,Viên nén bao phim,vien-nen-bao-phim,Nhà thuốc Long Châu,https://nhathuoclongchau.com.vn/thuoc/3-b-agi-neurin-agimexpharm-10-x10.html,Dữ liệu tham khảo phục vụ đồ án PharmaAssist,true,2026-05-24T17:46:52.740Z

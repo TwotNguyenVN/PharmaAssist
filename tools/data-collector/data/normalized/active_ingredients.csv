@@ -1,1 +1,26 @@
 ingredient_code,ingredient_name,ingredient_slug,description,source_name,source_url,source_note,is_demo_data,collected_at
+ING000001,Adapalene,adapalene,0.1%,Nhà thuốc Long Châu,https://nhathuoclongchau.com.vn/thuoc/klenzit-15g-3330.html,Dữ liệu tham khảo phục vụ đồ án PharmaAssist,true,2026-05-24T17:44:40.439Z
+ING000002,Vitamin B1,vitamin-b1,15mg,Nhà thuốc Long Châu,https://nhathuoclongchau.com.vn/thuoc/berocca-1515.html,Dữ liệu tham khảo phục vụ đồ án PharmaAssist,true,2026-05-24T17:44:53.747Z
+ING000003,Vitamin B2,vitamin-b2,15mg,Nhà thuốc Long Châu,https://nhathuoclongchau.com.vn/thuoc/berocca-1515.html,Dữ liệu tham khảo phục vụ đồ án PharmaAssist,true,2026-05-24T17:44:53.747Z
+ING000004,Vitamin B6,vitamin-b6,10mg,Nhà thuốc Long Châu,https://nhathuoclongchau.com.vn/thuoc/berocca-1515.html,Dữ liệu tham khảo phục vụ đồ án PharmaAssist,true,2026-05-24T17:44:53.747Z
+ING000005,Vitamin B12,vitamin-b12,0.01mg,Nhà thuốc Long Châu,https://nhathuoclongchau.com.vn/thuoc/berocca-1515.html,Dữ liệu tham khảo phục vụ đồ án PharmaAssist,true,2026-05-24T17:44:53.747Z
+ING000006,Vitamin B3,vitamin-b3,50mg,Nhà thuốc Long Châu,https://nhathuoclongchau.com.vn/thuoc/berocca-1515.html,Dữ liệu tham khảo phục vụ đồ án PharmaAssist,true,2026-05-24T17:44:53.747Z
+ING000007,Vitamin B5,vitamin-b5,23mg,Nhà thuốc Long Châu,https://nhathuoclongchau.com.vn/thuoc/berocca-1515.html,Dữ liệu tham khảo phục vụ đồ án PharmaAssist,true,2026-05-24T17:44:53.747Z
+ING000008,Magnesia,magnesia,100mg,Nhà thuốc Long Châu,https://nhathuoclongchau.com.vn/thuoc/berocca-1515.html,Dữ liệu tham khảo phục vụ đồ án PharmaAssist,true,2026-05-24T17:44:53.747Z
+ING000009,Vitamin C,vitamin-c,500mg,Nhà thuốc Long Châu,https://nhathuoclongchau.com.vn/thuoc/berocca-1515.html,Dữ liệu tham khảo phục vụ đồ án PharmaAssist,true,2026-05-24T17:44:53.747Z
+ING000010,Calcium,calcium,100mg,Nhà thuốc Long Châu,https://nhathuoclongchau.com.vn/thuoc/berocca-1515.html,Dữ liệu tham khảo phục vụ đồ án PharmaAssist,true,2026-05-24T17:44:53.747Z
+ING000011,Vitamin B8,vitamin-b8,0.15mg,Nhà thuốc Long Châu,https://nhathuoclongchau.com.vn/thuoc/berocca-1515.html,Dữ liệu tham khảo phục vụ đồ án PharmaAssist,true,2026-05-24T17:44:53.747Z
+ING000012,Kẽm,kem,10mg,Nhà thuốc Long Châu,https://nhathuoclongchau.com.vn/thuoc/berocca-1515.html,Dữ liệu tham khảo phục vụ đồ án PharmaAssist,true,2026-05-24T17:44:53.747Z
+ING000013,Paracetamol,paracetamol,500mg,Nhà thuốc Long Châu,https://nhathuoclongchau.com.vn/thuoc/efferalgan-500mg-1620.html,Dữ liệu tham khảo phục vụ đồ án PharmaAssist,true,2026-05-24T17:45:20.613Z
+ING000014,Clorpheniramin maleat,clorpheniramin-maleat,4mg,Nhà thuốc Long Châu,https://nhathuoclongchau.com.vn/thuoc/clorpheniramin-4-200v-4228.html,Dữ liệu tham khảo phục vụ đồ án PharmaAssist,true,2026-05-24T17:45:33.137Z
+ING000015,Diosmectite,diosmectite,3g,Nhà thuốc Long Châu,https://nhathuoclongchau.com.vn/thuoc/smecta-2236.html,Dữ liệu tham khảo phục vụ đồ án PharmaAssist,true,2026-05-24T17:45:52.674Z
+ING000016,Simethicone,simethicone,30mg,Nhà thuốc Long Châu,https://nhathuoclongchau.com.vn/thuoc/kremils-s-3315.html,Dữ liệu tham khảo phục vụ đồ án PharmaAssist,true,2026-05-24T17:46:11.149Z
+ING000017,Magnesium hydroxide,magnesium-hydroxide,233mg,Nhà thuốc Long Châu,https://nhathuoclongchau.com.vn/thuoc/kremils-s-3315.html,Dữ liệu tham khảo phục vụ đồ án PharmaAssist,true,2026-05-24T17:46:11.149Z
+ING000018,Nhôm hydroxyd,nhom-hydroxyd,178mg,Nhà thuốc Long Châu,https://nhathuoclongchau.com.vn/thuoc/kremils-s-3315.html,Dữ liệu tham khảo phục vụ đồ án PharmaAssist,true,2026-05-24T17:46:11.149Z
+ING000019,Eucalyptol,eucalyptol,100mg,Nhà thuốc Long Châu,https://nhathuoclongchau.com.vn/thuoc/eugica-vien-uong-dieu-tri-ho-cam-cum-490.html,Dữ liệu tham khảo phục vụ đồ án PharmaAssist,true,2026-05-24T17:46:24.501Z
+ING000020,Tinh dầu tần,tinh-dau-tan,0.18mg,Nhà thuốc Long Châu,https://nhathuoclongchau.com.vn/thuoc/eugica-vien-uong-dieu-tri-ho-cam-cum-490.html,Dữ liệu tham khảo phục vụ đồ án PharmaAssist,true,2026-05-24T17:46:24.501Z
+ING000021,Tinh dầu gừng,tinh-dau-gung,0.5mg,Nhà thuốc Long Châu,https://nhathuoclongchau.com.vn/thuoc/eugica-vien-uong-dieu-tri-ho-cam-cum-490.html,Dữ liệu tham khảo phục vụ đồ án PharmaAssist,true,2026-05-24T17:46:24.501Z
+ING000022,Menthol natural,menthol-natural,0.5mg,Nhà thuốc Long Châu,https://nhathuoclongchau.com.vn/thuoc/eugica-vien-uong-dieu-tri-ho-cam-cum-490.html,Dữ liệu tham khảo phục vụ đồ án PharmaAssist,true,2026-05-24T17:46:24.501Z
+ING000023,Vitamin B1 ( Thiamin mononitrate),vitamin-b1-thiamin-mononitrate,125mg,Nhà thuốc Long Châu,https://nhathuoclongchau.com.vn/thuoc/3-b-agi-neurin-agimexpharm-10-x10.html,Dữ liệu tham khảo phục vụ đồ án PharmaAssist,true,2026-05-24T17:46:52.740Z
+ING000024,Pyridoxin hydroclorid,pyridoxin-hydroclorid,125mg,Nhà thuốc Long Châu,https://nhathuoclongchau.com.vn/thuoc/3-b-agi-neurin-agimexpharm-10-x10.html,Dữ liệu tham khảo phục vụ đồ án PharmaAssist,true,2026-05-24T17:46:52.740Z
+ING000025,Cyanocobalamin,cyanocobalamin,125mcg,Nhà thuốc Long Châu,https://nhathuoclongchau.com.vn/thuoc/3-b-agi-neurin-agimexpharm-10-x10.html,Dữ liệu tham khảo phục vụ đồ án PharmaAssist,true,2026-05-24T17:46:52.740Z

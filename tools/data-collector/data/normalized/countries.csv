@@ -1,0 +1,5 @@
+country_code,country_name,country_slug,source_name,source_url,source_note,is_demo_data,collected_at
+CTY000001,Ấn Độ,an-do,Nhà thuốc Long Châu,https://nhathuoclongchau.com.vn/thuoc/klenzit-15g-3330.html,Dữ liệu tham khảo phục vụ đồ án PharmaAssist,true,2026-05-24T17:44:40.439Z
+CTY000002,Indonesia,indonesia,Nhà thuốc Long Châu,https://nhathuoclongchau.com.vn/thuoc/berocca-1515.html,Dữ liệu tham khảo phục vụ đồ án PharmaAssist,true,2026-05-24T17:44:53.747Z
+CTY000003,Việt Nam,viet-nam,Nhà thuốc Long Châu,https://nhathuoclongchau.com.vn/thuoc/farzincol-10mg-3786.html,Dữ liệu tham khảo phục vụ đồ án PharmaAssist,true,2026-05-24T17:45:07.950Z
+CTY000004,Pháp,phap,Nhà thuốc Long Châu,https://nhathuoclongchau.com.vn/thuoc/efferalgan-500mg-1620.html,Dữ liệu tham khảo phục vụ đồ án PharmaAssist,true,2026-05-24T17:45:20.613Z

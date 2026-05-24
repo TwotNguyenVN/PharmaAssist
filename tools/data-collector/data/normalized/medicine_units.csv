@@ -1,0 +1,6 @@
+unit_code,unit_name,source_name,source_url,source_note,is_demo_data,collected_at
+UNIT000001,Tuýp,Nhà thuốc Long Châu,https://nhathuoclongchau.com.vn/thuoc/klenzit-15g-3330.html,Dữ liệu tham khảo phục vụ đồ án PharmaAssist,true,2026-05-24T17:44:40.439Z
+UNIT000002,Viên,Nhà thuốc Long Châu,https://nhathuoclongchau.com.vn/thuoc/berocca-1515.html,Dữ liệu tham khảo phục vụ đồ án PharmaAssist,true,2026-05-24T17:44:53.747Z
+UNIT000003,Hộp,Nhà thuốc Long Châu,https://nhathuoclongchau.com.vn/thuoc/farzincol-10mg-3786.html,Dữ liệu tham khảo phục vụ đồ án PharmaAssist,true,2026-05-24T17:45:07.950Z
+UNIT000004,Vỉ,Nhà thuốc Long Châu,https://nhathuoclongchau.com.vn/thuoc/farzincol-10mg-3786.html,Dữ liệu tham khảo phục vụ đồ án PharmaAssist,true,2026-05-24T17:45:07.950Z
+UNIT000005,Gói,Nhà thuốc Long Châu,https://nhathuoclongchau.com.vn/thuoc/smecta-2236.html,Dữ liệu tham khảo phục vụ đồ án PharmaAssist,true,2026-05-24T17:45:52.674Z

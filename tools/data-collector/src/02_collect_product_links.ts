@@ -110,45 +110,52 @@ async function extractProductLinks(page: Page, cat: CategoryRaw, baseUrl: string
         fullUrl = baseUrl + fullUrl;
       }
       
-      // Keep within domain and look for typical product patterns (.html or ends with a number)
-      if (fullUrl.startsWith(baseUrl) && (fullUrl.includes('.html') || fullUrl.match(/-\d+$/))) {
-        
-        let name = a.textContent?.replace(/\s+/g, ' ').trim() || '';
-        // If the text is generic, try grabbing the title
-        if (name.toLowerCase() === 'xem thêm' || name.toLowerCase() === 'chi tiết') {
-           name = a.getAttribute('title') || '';
-        }
+      // Clean query and hash first
+      const cleanedUrl = fullUrl.split('?')[0].split('#')[0];
+      
+      try {
+        const path = new URL(cleanedUrl).pathname;
+        const isValidSegment = /^\/(thuoc|thuc-pham-chuc-nang|trang-thiet-bi-y-te|duoc-my-pham|cham-soc-ca-nhan)\//.test(path);
+        const isBlacklisted = /\/(chinh-sach|tin-tuc|he-thong-cua-hang|khuyen-mai|tuyen-dung|lien-he)\//.test(path);
 
-        const img = a.querySelector('img');
-        const imageUrl = img ? (img.getAttribute('src') || img.getAttribute('data-src')) : null;
+        if (cleanedUrl.startsWith(baseUrl) && isValidSegment && !isBlacklisted && (cleanedUrl.includes('.html') || cleanedUrl.match(/-\d+$/))) {
+          let name = a.textContent?.replace(/\s+/g, ' ').trim() || '';
+          if (name.toLowerCase() === 'xem thêm' || name.toLowerCase() === 'chi tiết') {
+             name = a.getAttribute('title') || '';
+          }
 
-        let priceText = null;
-        let parent: HTMLElement | null = a.parentElement;
-        let depth = 0;
-        // Search up to 3 levels up for a price element
-        while (parent && depth < 3) {
-           const textNodes = Array.from(parent.querySelectorAll('*')).map(el => el.textContent || '');
-           const priceEl = textNodes.find(t => (t.includes('đ') || t.includes('₫') || t.includes('VNĐ')) && t.match(/\d/));
-           if (priceEl) {
-             priceText = priceEl.replace(/\s+/g, ' ').trim();
-             break;
-           }
-           parent = parent.parentElement;
-           depth++;
-        }
+          const img = a.querySelector('img');
+          const imageUrl = img ? (img.getAttribute('src') || img.getAttribute('data-src')) : null;
 
-        if (name.length > 3 || fullUrl) {
-          results.push({
-            category_code: cat.category_code,
-            category_name: cat.category_name,
-            category_url: cat.category_url,
-            product_name: name.length > 0 ? name : null,
-            product_url: fullUrl.split('?')[0].split('#')[0], // remove query/hash
-            image_url: imageUrl,
-            price_text: priceText,
-            collected_at: collectedAt
-          });
+          let priceText = null;
+          let parent: HTMLElement | null = a.parentElement;
+          let depth = 0;
+          while (parent && depth < 3) {
+             const textNodes = Array.from(parent.querySelectorAll('*')).map(el => el.textContent || '');
+             const priceEl = textNodes.find(t => (t.includes('đ') || t.includes('₫') || t.includes('VNĐ')) && t.match(/\d/));
+             if (priceEl) {
+               priceText = priceEl.replace(/\s+/g, ' ').trim();
+               break;
+             }
+             parent = parent.parentElement;
+             depth++;
+          }
+
+          if (name.length > 3 || cleanedUrl) {
+            results.push({
+              category_code: cat.category_code,
+              category_name: cat.category_name,
+              category_url: cat.category_url,
+              product_name: name.length > 0 ? name : null,
+              product_url: cleanedUrl,
+              image_url: imageUrl,
+              price_text: priceText,
+              collected_at: collectedAt
+            });
+          }
         }
+      } catch (urlErr) {
+        // Skip invalid URL formats
       }
     }
     return results;
@@ -208,17 +215,24 @@ async function main(): Promise<void> {
   const uniqueLinks = new Map<string, ProductLinkRaw>();
   const duplicateUrls: string[] = [];
   let errorCount = 0;
+  let crawledCategoryCount = 0;
 
   for (const cat of toCrawl) {
-    if (mode === 'sample' && uniqueLinks.size >= maxProducts) {
-      logInfo(`Reached MAX_PRODUCTS (${maxProducts}) in sample mode. Stopping early.`);
-      break;
+    if (mode === 'sample') {
+      if (uniqueLinks.size >= maxProducts) {
+        logInfo(`Reached MAX_PRODUCTS (${maxProducts}) in sample mode. Stopping early.`);
+        break;
+      }
+      if (crawledCategoryCount >= 5) {
+        logInfo(`Reached max categories limit (5) in sample mode. Stopping early.`);
+        break;
+      }
     }
 
     logInfo(`Crawling category: ${cat.category_name} (${cat.category_url})`);
     
     try {
-      await page.goto(cat.category_url, { waitUntil: 'domcontentloaded', timeout: 30000 });
+      await page.goto(cat.category_url, { waitUntil: 'networkidle', timeout: 30000 });
       
       const baseUrl = new URL(cat.category_url).origin;
       await autoScrollAndLoadMore(page, maxScrollRounds, maxLoadMore);
@@ -236,6 +250,7 @@ async function main(): Promise<void> {
       }
       
       logInfo(`Found ${extracted.length} links (${newCount} new). Total unique: ${uniqueLinks.size}, Duplicates: ${duplicateUrls.length}`);
+      crawledCategoryCount++;
       
     } catch (err) {
       logError(`Error processing category ${cat.category_name}`, err);
