@@ -68,12 +68,25 @@ async function autoScrollAndLoadMore(page: Page, maxScrolls: number, maxClicks: 
     
     // Attempt to click "Load More" / "Xem thêm"
     try {
-      const buttons = await page.locator('button, a').filter({ hasText: /xem thêm|tải thêm|hiển thị thêm/i }).all();
+      const buttons = await page.locator('button').filter({ hasText: /xem thêm|tải thêm|hiển thị thêm/i }).all();
       for (const btn of buttons) {
         if (await btn.isVisible() && clickCount < maxClicks) {
-          await btn.click({ force: true });
+          // Hover before clicking to mimic real user behavior and prevent anti-bot trigger
+          await btn.hover({ timeout: 2000 }).catch(() => {});
+          
+          // Random delay before clicking (500ms - 1500ms)
+          const randomDelayMs = Math.floor(Math.random() * 1000) + 500;
+          await delay(randomDelayMs);
+          
+          await btn.click({ force: false }).catch(async () => {
+            // Fallback to force click if standard click is intercepted
+            await btn.click({ force: true }).catch(() => {});
+          });
+          
           clickCount++;
-          await delay(2000); // Wait for new products to render
+          // Wait longer after click for products to render (2s - 4s)
+          const waitRenderMs = Math.floor(Math.random() * 2000) + 2000;
+          await delay(waitRenderMs);
           break; 
         }
       }
@@ -170,10 +183,13 @@ async function main(): Promise<void> {
   const headlessEnv = process.env.HEADLESS !== 'false';
   const minDelay = parseInt(process.env.REQUEST_DELAY_RANDOM_MIN_MS ?? '2000', 10);
   const maxDelay = parseInt(process.env.REQUEST_DELAY_RANDOM_MAX_MS ?? '5000', 10);
-  const maxScrollRounds = parseInt(process.env.MAX_SCROLL_ROUNDS ?? '30', 10);
-  const maxLoadMore = parseInt(process.env.MAX_LOAD_MORE_CLICKS ?? '30', 10);
   const mode = process.env.CRAWL_MODE ?? 'sample';
   const maxProducts = parseInt(process.env.MAX_PRODUCTS ?? '200', 10);
+  
+  const defaultScroll = mode === 'sample' ? '3' : '30';
+  const defaultLoadMore = mode === 'sample' ? '0' : '30';
+  const maxScrollRounds = parseInt(process.env.MAX_SCROLL_ROUNDS ?? defaultScroll, 10);
+  const maxLoadMore = parseInt(process.env.MAX_LOAD_MORE_CLICKS ?? defaultLoadMore, 10);
 
   const rawCategoriesPath = path.join(ROOT_DIR, 'data/raw/categories.raw.json');
   const urlsPath = path.join(ROOT_DIR, 'category_urls.json');
@@ -200,7 +216,29 @@ async function main(): Promise<void> {
 
   // Filter: If a category has children in the dataset, skip it (prioritize leaf categories)
   const parentCodes = new Set(allCats.map(c => c.parent_category_code).filter(Boolean));
-  const toCrawl = allCats.filter(cat => !parentCodes.has(cat.category_code));
+  let toCrawl = allCats.filter(cat => !parentCodes.has(cat.category_code));
+
+  // Skip alphabetical A-Z search pages (they don't contain direct product grids and cause duplicate issues)
+  toCrawl = toCrawl.filter(cat => !cat.category_url.includes('/tra-cuu-thuoc'));
+
+  // Sync with enabled configurations in category_urls.json
+  function getRootCode(code: string): string {
+    if (code.startsWith('CAT_THUOC')) return 'CAT_THUOC';
+    if (code.startsWith('CAT_TPCN')) return 'CAT_TPCN';
+    if (code.startsWith('CAT_TBYT')) return 'CAT_TBYT';
+    if (code.startsWith('CAT_DUOC_MY_PHAM')) return 'CAT_DUOC_MY_PHAM';
+    if (code.startsWith('CAT_CHAM_SOC_CA_NHAN')) return 'CAT_CHAM_SOC_CA_NHAN';
+    return code;
+  }
+
+  if (fs.existsSync(urlsPath)) {
+    const defs = readJson<CategoryUrlDef[]>(urlsPath, []);
+    const enabledRoots = new Set(defs.filter(d => d.enabled).map(d => d.categoryCode));
+    toCrawl = toCrawl.filter(cat => {
+      const rootCode = getRootCode(cat.category_code);
+      return enabledRoots.has(rootCode);
+    });
+  }
 
   logInfo(`Found ${toCrawl.length} leaf categories to crawl (mode: ${mode}).`);
 
@@ -215,7 +253,7 @@ async function main(): Promise<void> {
   const uniqueLinks = new Map<string, ProductLinkRaw>();
   const duplicateUrls: string[] = [];
   let errorCount = 0;
-  let crawledCategoryCount = 0;
+  let consecutiveNoNewLinks = 0;
 
   for (const cat of toCrawl) {
     if (mode === 'sample') {
@@ -223,8 +261,8 @@ async function main(): Promise<void> {
         logInfo(`Reached MAX_PRODUCTS (${maxProducts}) in sample mode. Stopping early.`);
         break;
       }
-      if (crawledCategoryCount >= 5) {
-        logInfo(`Reached max categories limit (5) in sample mode. Stopping early.`);
+      if (consecutiveNoNewLinks >= 5) {
+        logInfo(`Detected 5 consecutive categories with 0 new links in sample mode. Stopping early to prevent bottleneck.`);
         break;
       }
     }
@@ -250,7 +288,12 @@ async function main(): Promise<void> {
       }
       
       logInfo(`Found ${extracted.length} links (${newCount} new). Total unique: ${uniqueLinks.size}, Duplicates: ${duplicateUrls.length}`);
-      crawledCategoryCount++;
+      
+      if (newCount === 0) {
+        consecutiveNoNewLinks++;
+      } else {
+        consecutiveNoNewLinks = 0;
+      }
       
     } catch (err) {
       logError(`Error processing category ${cat.category_name}`, err);
