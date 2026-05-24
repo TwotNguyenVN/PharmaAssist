@@ -1,7 +1,6 @@
-# 📘 SKILL: GIT & GITHUB WORKFLOW CHO LÀM VIỆC NHÓM
+# 📜 HIẾN PHÁP GIT & GITHUB WORKFLOW CHO LÀM VIỆC NHÓM
 
-> Tài liệu tổng hợp toàn diện về quy trình làm việc nhóm với Git/GitHub — từ cơ bản đến chuyên nghiệp.
-> Nguồn gốc: Tổng hợp từ git.md + git2.md + git3.md
+> Bộ "Hiến pháp Git" tối cao quy định quy trình làm việc nhóm chuyên nghiệp, nhất quán và an toàn với Git & GitHub dành cho mọi thành viên trong dự án.
 
 ---
 
@@ -24,13 +23,13 @@ Git không chỉ dùng để lưu code mà còn để:
 
 ### 2.1. Tổng quan các nhánh
 
-*   🔴 **`main`**: Nhánh chứa code hoàn chỉnh, ổn định nhất. Dùng để deploy (chạy thực tế) hoặc nộp bài, demo. **TUYỆT ĐỐI KHÔNG code trực tiếp trên nhánh này.**
-*   🟡 **`develop`**: Nhánh "hội quân" (Integration Branch). Chứa code mới nhất đã qua kiểm thử cơ bản. Mọi tính năng mới đều phân nhánh từ đây và gộp (merge) về đây.
-*   🟢 **`feature/*`**: Các nhánh dùng để làm tính năng mới. (Ví dụ: `feature/login`, `feature/tour-booking`).
-*   🟠 **`fix/*`** hoặc **`bugfix/*`**: Nhánh dùng để sửa lỗi trong quá trình phát triển. (Ví dụ: `fix/ui-adjustments`).
-*   🔵 **`docs/*`**: Nhánh dùng để cập nhật tài liệu (README, Markdown, UML).
-*   🟣 **`release/*`**: Chuẩn bị bản phát hành, demo hoặc nộp bài.
-*   🔴 **`hotfix/*`**: Sửa lỗi khẩn cấp trực tiếp trên production/main.
+- 🔴 **`main`**: Nhánh chứa code hoàn chỉnh, ổn định nhất. Dùng để deploy (chạy thực tế) hoặc nộp bài, demo. **TUYỆT ĐỐI KHÔNG code trực tiếp trên nhánh này.**
+- 🟡 **`develop`**: Nhánh "hội quân" (Integration Branch). Chứa code mới nhất đã qua kiểm thử cơ bản. Mọi tính năng mới đều phân nhánh từ đây và gộp (merge) về đây.
+- 🟢 **`feature/*`**: Các nhánh dùng để làm tính năng mới. (Ví dụ: `feature/login`, `feature/tour-booking`).
+- 🟠 **`fix/*`** hoặc **`bugfix/*`**: Nhánh dùng để sửa lỗi trong quá trình phát triển. (Ví dụ: `fix/ui-adjustments`).
+- 🔵 **`docs/*`**: Nhánh dùng để cập nhật tài liệu (README, Markdown, UML).
+- 🟣 **`release/*`**: Chuẩn bị bản phát hành, demo hoặc nộp bài.
+- 🔴 **`hotfix/*`**: Sửa lỗi khẩn cấp trực tiếp trên production/main.
 
 ### 2.2. Sơ đồ cấu trúc
 
@@ -127,6 +126,7 @@ hotfix  → main + develop
 ## 4. QUY TRÌNH CHI TIẾT CHO TỪNG THÀNH VIÊN
 
 ### Bước 1: Đảm bảo bạn đang ở nhánh `develop` và có code mới nhất
+
 ```bash
 # Chuyển về nhánh develop
 git checkout develop
@@ -136,7 +136,9 @@ git pull origin develop
 ```
 
 ### Bước 2: Tạo nhánh mới cho tính năng / sửa lỗi
+
 Tên nhánh cần mô tả ngắn gọn tính năng bạn sắp làm.
+
 ```bash
 # Tạo và chuyển sang nhánh mới
 git checkout -b feature/ten-tinh-nang
@@ -144,7 +146,9 @@ git checkout -b feature/ten-tinh-nang
 ```
 
 ### Bước 3: Viết code và Kiểm tra trên local
+
 Làm việc trên VSCode/IDE của bạn.
+
 ```bash
 # Chạy thử project để kiểm tra code
 npm run dev
@@ -154,7 +158,9 @@ git status
 ```
 
 ### Bước 4: Lưu lại thay đổi (Commit)
+
 Khi code xong một phần logic, hãy commit lại với thông điệp rõ ràng theo chuẩn Conventional Commits.
+
 ```bash
 # Thêm các file đã thay đổi vào danh sách chờ
 git add .
@@ -162,9 +168,11 @@ git add .
 # Lưu lại với lời nhắn có ý nghĩa
 git commit -m "feat: thêm giao diện trang cá nhân người dùng"
 ```
-*(Bạn có thể lặp lại Bước 4 nhiều lần cho đến khi xong tính năng)*
+
+_(Bạn có thể lặp lại Bước 4 nhiều lần cho đến khi xong tính năng)_
 
 ### Bước 5: Đẩy code lên GitHub (Push)
+
 ```bash
 # Lần đầu tiên đẩy nhánh này lên GitHub:
 git push -u origin feature/ten-tinh-nang
@@ -174,13 +182,15 @@ git push
 ```
 
 ### Bước 6: Tạo Pull Request (PR) và Review
-1. Truy cập vào trang GitHub của dự án TravelConnectVN.
+
+1. Truy cập vào trang GitHub (hoặc GitLab, Bitbucket) của dự án.
 2. Sẽ có nút màu xanh **"Compare & pull request"** hiện lên ở đầu trang -> Bấm vào đó.
 3. Đảm bảo luồng merge chính xác là: `feature/ten-tinh-nang` ➡️ `develop` (TUYỆT ĐỐI KHÔNG merge trực tiếp vào main).
 4. Viết mô tả chi tiết những gì bạn đã làm, kèm theo ảnh chụp màn hình (nếu có thay đổi UI).
 5. Bấm **Create pull request**. Nhờ trưởng nhóm hoặc đồng đội review code, duyệt PR và bấm **Merge pull request**.
 
 ### Bước 7: Cập nhật lại develop sau khi PR được merge
+
 ```bash
 # Quay về develop
 git checkout develop
@@ -305,17 +315,17 @@ test    abc    new    update    fix    code-cua-tui    branch1
 
 ### Công thức: `<type>: <mô tả ngắn>`
 
-| Type | Ý nghĩa |
-|------|---------|
-| `feat` | Thêm chức năng mới |
-| `fix` | Sửa lỗi |
-| `docs` | Cập nhật tài liệu |
-| `style` | Sửa giao diện hoặc format code |
+| Type       | Ý nghĩa                          |
+| ---------- | -------------------------------- |
+| `feat`     | Thêm chức năng mới               |
+| `fix`      | Sửa lỗi                          |
+| `docs`     | Cập nhật tài liệu                |
+| `style`    | Sửa giao diện hoặc format code   |
 | `refactor` | Tối ưu code, không đổi chức năng |
-| `test` | Thêm hoặc sửa test |
-| `chore` | Việc phụ như config, package |
-| `perf` | Cải thiện hiệu năng |
-| `ci` | Thay đổi CI/CD |
+| `test`     | Thêm hoặc sửa test               |
+| `chore`    | Việc phụ như config, package     |
+| `perf`     | Cải thiện hiệu năng              |
+| `ci`       | Thay đổi CI/CD                   |
 
 ### ✅ Ví dụ tốt
 
@@ -418,6 +428,7 @@ code từ nhánh khác
 ### Cách xử lý
 
 Khi Git báo conflict trong quá trình pull hoặc merge:
+
 1. Mở VSCode lên, tìm các file bị báo đỏ/lỗi (được đánh dấu bằng chữ `C` hoặc có cảnh báo).
 2. VSCode sẽ tự động làm nổi bật và bôi màu các đoạn code bị xung đột.
 3. Tại mỗi đoạn xung đột, bạn sẽ thấy các lựa chọn nhanh hiển thị ngay phía trên đoạn code:
@@ -547,11 +558,11 @@ git merge origin/develop
 git stash pop                # Lấy lại code
 ```
 
-| Tình huống | Nên dùng |
-|------------|----------|
-| Làm xong một phần nhỏ | `commit` |
-| Đang sửa dở, chưa muốn commit | `stash` |
-| Sợ mất code | `commit` an toàn hơn |
+| Tình huống                    | Nên dùng             |
+| ----------------------------- | -------------------- |
+| Làm xong một phần nhỏ         | `commit`             |
+| Đang sửa dở, chưa muốn commit | `stash`              |
+| Sợ mất code                   | `commit` an toàn hơn |
 
 > ⚠️ Luôn chạy `git status` trước khi merge/rebase!
 
@@ -609,12 +620,14 @@ Sau mỗi lần merge, các PR còn lại cần cập nhật develop mới.
 > **Nguyên tắc:** Bất cứ khi nào có thay đổi mới được gộp vào `main`, **phải thực hiện đồng bộ ngược** để đưa những sửa đổi đó trở lại `develop`. Điều này giúp `develop` luôn đồng nhất và không bị đi sau `main`.
 
 Cách thực hiện đồng bộ ngược an toàn:
+
 ```bash
 git checkout develop
 git fetch origin
 git merge origin/main
 git push origin develop
 ```
+
 Sau khi chạy các lệnh trên, nhánh `develop` sẽ hoàn toàn bắt kịp `main` và sẵn sàng làm việc tiếp mà không gặp lỗi lệch code lịch sử.
 
 ---
@@ -701,29 +714,29 @@ Nội dung cần có:
 
 ## 18. LỆNH GIT QUAN TRỌNG — THAM CHIẾU NHANH
 
-| Mục đích | Lệnh |
-|----------|-------|
-| Kiểm tra trạng thái | `git status` |
-| Xem danh sách nhánh | `git branch` |
-| Chuyển nhánh | `git checkout develop` hoặc `git switch develop` |
-| Tạo nhánh mới | `git checkout -b feature/login` hoặc `git switch -c feature/login` |
-| Lấy code mới nhất | `git pull origin develop` |
-| Thêm file vào commit | `git add .` |
-| Commit | `git commit -m "feat: add login page"` |
-| Push | `git push origin feature/login` |
-| Xem lịch sử commit | `git log --oneline` |
-| Merge nhánh | `git merge feature/login` |
-| Xóa nhánh local | `git branch -d feature/login` |
-| Xóa nhánh remote | `git push origin --delete feature/login` |
-| Tạo tag | `git tag v1.0` → `git push origin v1.0` |
-| Stash code | `git stash` → `git stash pop` |
-| Fetch (không merge) | `git fetch origin` |
+| Mục đích             | Lệnh                                                               |
+| -------------------- | ------------------------------------------------------------------ |
+| Kiểm tra trạng thái  | `git status`                                                       |
+| Xem danh sách nhánh  | `git branch`                                                       |
+| Chuyển nhánh         | `git checkout develop` hoặc `git switch develop`                   |
+| Tạo nhánh mới        | `git checkout -b feature/login` hoặc `git switch -c feature/login` |
+| Lấy code mới nhất    | `git pull origin develop`                                          |
+| Thêm file vào commit | `git add .`                                                        |
+| Commit               | `git commit -m "feat: add login page"`                             |
+| Push                 | `git push origin feature/login`                                    |
+| Xem lịch sử commit   | `git log --oneline`                                                |
+| Merge nhánh          | `git merge feature/login`                                          |
+| Xóa nhánh local      | `git branch -d feature/login`                                      |
+| Xóa nhánh remote     | `git push origin --delete feature/login`                           |
+| Tạo tag              | `git tag v1.0` → `git push origin v1.0`                            |
+| Stash code           | `git stash` → `git stash pop`                                      |
+| Fetch (không merge)  | `git fetch origin`                                                 |
 
 ---
 
 ## 19. NGUYÊN TẮC VÀNG KHI PUSH LÊN GITHUB (PUSH GUIDELINES)
 
-Để đảm bảo dự án TravelConnectVN vận hành trơn tru, chất lượng code luôn cao và tránh làm hỏng repository chung, mọi thành viên **bắt buộc** phải tuân thủ nghiêm ngặt các nguyên tắc vàng sau trước khi chạy lệnh `git push`:
+Để đảm bảo dự án vận hành trơn tru, chất lượng code luôn cao và tránh làm hỏng repository chung, mọi thành viên trong nhóm **bắt buộc** phải tuân thủ nghiêm ngặt các nguyên tắc vàng sau trước khi chạy lệnh `git push`:
 
 1. **Kiểm tra Biên dịch & Linter**: Luôn chạy lệnh kiểm tra lỗi cú pháp, linter và type check ở máy local (`npx tsc --noEmit` hoặc tương đương) trước khi push. Tuyệt đối không bao giờ đẩy code đang bị lỗi biên dịch lên repo chung.
 2. **Tuyệt đối KHÔNG Force Push bừa bãi**: Không bao giờ dùng `git push --force` hoặc `-f` trên các nhánh dùng chung như `develop` và `main`. Điều này sẽ ghi đè lịch sử commit của người khác, làm mất mát code và phá hỏng repository.
@@ -766,19 +779,19 @@ Nội dung cần có:
 
 ## 21. NHỮNG LỖI THƯỜNG GẶP
 
-| Lỗi | Cách tránh |
-|-----|-----------|
-| Code trực tiếp trên `main` | Chỉ code trên nhánh `feature` |
-| Quên pull code mới nhất | Luôn `git pull origin develop` trước khi làm |
-| Commit quá lớn (login + payment + admin trong 1 commit) | Chia nhỏ: 1 commit = 1 việc cụ thể |
-| Push file `.env` | Thêm `.env` vào `.gitignore` |
-| Commit message không rõ ("update", "fix", "abc") | Dùng format `feat:`, `fix:`, `docs:` |
-| Không review code | Bắt buộc PR và review trước khi merge |
-| Sửa code người khác không báo | Nhắn nhóm trước khi sửa file chung |
-| PR trống không mô tả | Luôn ghi rõ đã làm gì + cách test |
-| Merge code chưa test | Chạy project trước khi tạo PR |
-| Dồn PR cuối ngày | Xong chức năng nào PR sớm chức năng đó |
-| Bấm Accept Current/Incoming bừa | Đọc hiểu code rồi mới chọn |
+| Lỗi                                                     | Cách tránh                                   |
+| ------------------------------------------------------- | -------------------------------------------- |
+| Code trực tiếp trên `main`                              | Chỉ code trên nhánh `feature`                |
+| Quên pull code mới nhất                                 | Luôn `git pull origin develop` trước khi làm |
+| Commit quá lớn (login + payment + admin trong 1 commit) | Chia nhỏ: 1 commit = 1 việc cụ thể           |
+| Push file `.env`                                        | Thêm `.env` vào `.gitignore`                 |
+| Commit message không rõ ("update", "fix", "abc")        | Dùng format `feat:`, `fix:`, `docs:`         |
+| Không review code                                       | Bắt buộc PR và review trước khi merge        |
+| Sửa code người khác không báo                           | Nhắn nhóm trước khi sửa file chung           |
+| PR trống không mô tả                                    | Luôn ghi rõ đã làm gì + cách test            |
+| Merge code chưa test                                    | Chạy project trước khi tạo PR                |
+| Dồn PR cuối ngày                                        | Xong chức năng nào PR sớm chức năng đó       |
+| Bấm Accept Current/Incoming bừa                         | Đọc hiểu code rồi mới chọn                   |
 
 ---
 
@@ -854,7 +867,7 @@ git pull origin develop
 
 ## 24. QUY TRÌNH GIT KHI LÀM VIỆC VỚI AI ASSISTANT
 
-> Mục này quy định cách AI assistant (Antigravity, Cursor, Claude, v.v.) thực hiện các thao tác Git khi được yêu cầu nhằm bảo vệ dự án TravelConnectVN khỏi việc tự động merge bừa bãi và tuân thủ quy trình kiểm duyệt Pull Request (PR) của nhóm.
+> Mục này quy định cách AI assistant (Antigravity, Cursor, Claude, v.v.) thực hiện các thao tác Git khi được yêu cầu nhằm bảo vệ mã nguồn dự án khỏi việc tự động merge bừa bãi và tuân thủ quy trình kiểm duyệt Pull Request (PR) nghiêm ngặt của nhóm.
 
 ### 24.1. Nguyên tắc cốt lõi
 
@@ -875,6 +888,7 @@ git pull origin develop
 ### 24.2. Quy trình chi tiết
 
 #### Bước 1: Nhận yêu cầu mới từ người dùng
+
 ```bash
 # Cập nhật code mới nhất từ develop
 git checkout develop
@@ -886,6 +900,7 @@ git checkout -b feature/ten-yeu-cau
 ```
 
 #### Bước 2: Thực hiện yêu cầu
+
 ```text
 → AI tiến hành sửa code, thêm file, xóa file... trên local.
 → KHÔNG tự ý commit, KHÔNG tự ý push.
@@ -894,7 +909,9 @@ git checkout -b feature/ten-yeu-cau
 ```
 
 #### Bước 3: Khi người dùng yêu cầu "push lên GitHub" hoặc "đẩy code"
+
 AI thực hiện tự động chuỗi hành động an toàn sau:
+
 ```bash
 # 3a. Commit toàn bộ thay đổi local
 git add .
@@ -906,12 +923,14 @@ git push -u origin feature/ten-yeu-cau
 
 **3c. Hướng dẫn người dùng tạo Pull Request (PR) trên giao diện GitHub Web:**
 Sau khi push thành công, AI sẽ in ra thông báo hướng dẫn người dùng:
+
 1. Truy cập vào trang GitHub của dự án.
 2. Bấm nút **"Compare & pull request"**.
 3. Chọn luồng merge: `feature/ten-yeu-cau` ➡️ `develop` (Tuyệt đối không merge thẳng vào main).
 4. Viết mô tả ngắn và gán nhãn reviewer để được đồng đội/leader review và merge trên GitHub.
 
 #### Bước 4: Chuẩn bị cho yêu cầu tiếp theo
+
 ```text
 → Sau khi PR được duyệt và merge trên GitHub, quay lại Bước 1 khi nhận yêu cầu mới.
 → Mỗi yêu cầu mới luôn bắt đầu bằng việc checkout develop và pull mới nhất.
@@ -966,20 +985,21 @@ git commit -m "feat: implement user profile page
 
 ### 24.5. Xử lý tình huống đặc biệt
 
-| Tình huống | Xử lý |
-|-----------|-------|
-| Conflict khi merge vào develop trên GitHub | AI hướng dẫn xử lý hoặc tự cập nhật develop vào feature để giải quyết conflict ở local (xem 24.7) |
-| Người dùng muốn hủy thay đổi | `git checkout .` hoặc `git stash` |
-| Cần squash nhiều commit | Thao tác Squash có thể chọn trực tiếp khi click Merge PR trên GitHub Web UI |
-| Người dùng yêu cầu **"merge lên main"** | Xem hướng dẫn ở mục 24.6 bên dưới |
-| **Develop bị thay đổi (lệch code) so với lúc pull** | Xem quy trình giải quyết an toàn ở mục 24.7 bên dưới |
+| Tình huống                                          | Xử lý                                                                                             |
+| --------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| Conflict khi merge vào develop trên GitHub          | AI hướng dẫn xử lý hoặc tự cập nhật develop vào feature để giải quyết conflict ở local (xem 24.7) |
+| Người dùng muốn hủy thay đổi                        | `git checkout .` hoặc `git stash`                                                                 |
+| Cần squash nhiều commit                             | Thao tác Squash có thể chọn trực tiếp khi click Merge PR trên GitHub Web UI                       |
+| Người dùng yêu cầu **"merge lên main"**             | Xem hướng dẫn ở mục 24.6 bên dưới                                                                 |
+| **Develop bị thay đổi (lệch code) so với lúc pull** | Xem quy trình giải quyết an toàn ở mục 24.7 bên dưới                                              |
 
 ### 24.6. Khi người dùng yêu cầu "MERGE LÊN MAIN"
 
 > Đối với đồ án nhóm, việc gộp lên `main` nên thực hiện thông qua **Pull Request (PR)** từ `develop` ➡️ `main` (hoặc từ `release/*` ➡️ `main`) trên giao diện GitHub Web để đảm bảo an toàn tối đa.
-> AI chỉ hỗ trợ đẩy code và hướng dẫn người dùng tạo PR tương ứng. 
+> AI chỉ hỗ trợ đẩy code và hướng dẫn người dùng tạo PR tương ứng.
 
 Trong trường hợp người dùng là leader và có toàn quyền gộp nhánh trực tiếp ở máy local (khi không bật luật bảo vệ nhánh), quy trình local chuẩn là:
+
 ```bash
 # ① Gộp nhánh feature vào develop thông qua PR và test kỹ càng
 # ② Chuyển sang main và kéo code mới nhất
@@ -1031,52 +1051,7 @@ git push origin feature/ten-yeu-cau
 
 ---
 
-## 25. CÁC TÌNH HUỐNG THỰC TẾ & CÁCH GIẢI QUYẾT (CASE STUDIES)
-
-Dưới đây là các sự cố quản lý nhánh thực tế đã xảy ra trong quá trình phát triển dự án và quy trình xử lý chuẩn hóa để tham chiếu sau này.
-
-### Tình huống 1: Lệch pha lịch sử (Branch Drift) giữa hai nhánh chính `main` và `develop`
-*   **Hiện tượng:** Nhánh `main` và `develop` trên GitHub bị trôi lệch lịch sử commit chéo nhau. Nguyên nhân thường là do các Pull Request revert trước đó được gộp không đồng bộ trên đám mây, dẫn đến việc không thể tạo một Pull Request sạch từ `develop` vào `main` (bị báo có xung đột hoặc lịch sử lộn xộn).
-*   **Giải pháp xử lý chuẩn:**
-    ```bash
-    # 1. Chuyển sang nhánh develop local và kéo mã mới nhất
-    git checkout develop
-    git pull origin develop
-    
-    # 2. Gộp ngược origin/main vào develop local để tự giải quyết xung đột lịch sử ở local
-    git merge origin/main
-    
-    # 3. (Nếu có xung đột) Giải quyết conflict thủ công, commit lại:
-    # git add . && git commit -m "merge: resolve history drift with main"
-    
-    # 4. Đẩy nhánh develop sạch đã được đồng bộ lên lại GitHub
-    git push origin develop
-    ```
-    *Ý nghĩa:* Giúp đồng bộ hóa lịch sử của cả 2 nhánh chính, tạo ra một mốc cơ sở (base line) chuẩn cho tất cả các PR tiếp theo.
-
-### Tình huống 2: Lệch pha commit do duyệt gộp Pull Request sớm (Premature PR Merging)
-*   **Hiện tượng:** 
-    1. Lập trình viên tạo nhánh tính năng (ví dụ: `feat/remove-env-setup-run-js`) và đẩy commit số 1 lên.
-    2. Pull Request gộp nhánh tính năng này vào `develop` được duyệt và gộp ngay lập tức trên GitHub.
-    3. Ngay sau đó, khách hàng hoặc leader yêu cầu chỉnh sửa/nâng cấp thêm trên cùng chức năng đó. Lập trình viên tiếp tục viết code và đẩy thêm các commit mới (commit số 2, 3...) lên nhánh tính năng này.
-    4. **Hậu quả:** Vì PR trước đó đã gộp và đóng lại, các commit mới đẩy lên sau này bị "mắc kẹt" trên nhánh tính năng ở remote và không tự động bay vào nhánh `develop` trên GitHub.
-*   **Giải pháp xử lý chuẩn:**
-    *   **Cách xử lý kỹ thuật:** Lập trình viên (hoặc AI) cần tạo một **Pull Request thứ hai (lần 2)** từ chính nhánh tính năng đó vào `develop` trên GitHub để kéo nốt các commit mới còn thiếu vào nhánh chính.
-    *   **Lưu ý kinh nghiệm:** Trong thực tế làm việc, chỉ nên duyệt gộp PR khi toàn bộ phần tính năng, kiểm thử (tests) và giao diện đi kèm đã được hoàn thành và kiểm duyệt toàn diện 100% trên nhánh tính năng.
-
-### Tình huống 3: Lệch pha giữa máy Local và GitHub đám mây (Local vs Remote Out-of-sync)
-*   **Hiện tượng:** Sau khi gộp Pull Request thành công trên GitHub, nhánh `develop` trên đám mây đã đi trước nhánh `develop` dưới máy local của bạn nhiều commit. Nếu lập trình viên gõ code tiếp hoặc tạo nhánh tính năng mới từ nhánh `develop` local cũ này, khi push lên GitHub chắc chắn sẽ bị báo lỗi và bị từ chối lệnh đẩy code do lịch sử bị phân nhánh (diverged).
-*   **Giải pháp xử lý chuẩn:**
-    *   Luôn luôn chuyển về nhánh `develop` local và đồng bộ ngay lập tức trước khi bắt đầu bất kỳ công việc mới nào:
-    ```bash
-    git checkout develop
-    git pull origin develop
-    ```
-    *Ý nghĩa:* Tua nhanh (fast-forward) local khớp 100% với đám mây, triệt tiêu mọi rủi ro xung đột lịch sử nhánh ngay từ đầu.
-
----
-
-## 26. CÂU CẦN NHỚ
+## 25. CÂU CẦN NHỚ
 
 > **PR càng nhỏ và càng sớm thì càng dễ review, ít conflict, và project ổn định hơn.**
 

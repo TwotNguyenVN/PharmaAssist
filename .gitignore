@@ -39,3 +39,10 @@ yarn-error.log*
 # OS files
 .DS_Store
 Thumbs.db
+
+# Data Collector Tool
+tools/data-collector/.env
+tools/data-collector/data/raw/
+tools/data-collector/data/output/
+tools/data-collector/data/state/
+tools/data-collector/logs/
