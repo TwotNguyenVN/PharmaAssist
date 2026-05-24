@@ -13,7 +13,8 @@
     "validate:data": "tsx src/07_validate_data.ts",
     "generate:sql": "tsx src/05_generate_seed_sql.ts",
     "collect:all:sample": "npm run collect:links && npm run collect:details:sample && npm run normalize && npm run validate:data && npm run generate:sql",
-    "collect:all:full": "npm run collect:links && npm run collect:details:full && npm run retry:failed && npm run normalize && npm run validate:data && npm run generate:sql"
+    "collect:all:full": "npm run collect:links && npm run collect:details:full && npm run retry:failed && npm run normalize && npm run validate:data && npm run generate:sql",
+    "pipeline:sample:clean": "bash scripts/run_sample_pipeline.sh"
   },
   "dependencies": {
     "playwright": "^1.49.0",

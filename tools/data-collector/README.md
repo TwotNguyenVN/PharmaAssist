@@ -29,12 +29,17 @@ Các tham số cấu hình bao gồm:
 - **`SOURCE_NOTE`**: Chú thích hoặc ghi chú thêm cho nguồn dữ liệu (mặc định: `Dữ liệu tham khảo phục vụ đồ án PharmaAssist`).
 
 ## 4. Quy trình chạy sample
-Chạy thử nghiệm với số lượng sản phẩm nhỏ để kiểm định selector và cấu trúc output dữ liệu:
+Chạy thử nghiệm với số lượng sản phẩm nhỏ để kiểm định selector và cấu trúc output dữ liệu. Có thể chạy từng bước:
 - `npm run collect:links`: Lấy danh sách link sản phẩm.
 - `npm run collect:details:sample`: Thu thập chi tiết sản phẩm (chạy theo số lượng giới hạn của `MAX_PRODUCTS`).
 - `npm run normalize`: Chuẩn hóa dữ liệu thô sang định dạng CSV.
 - `npm run validate:data`: Kiểm tra chất lượng và độ toàn vẹn của dữ liệu CSV đã chuẩn hóa.
 - `npm run generate:sql`: Sinh script SQL seed từ dữ liệu CSV để import vào database.
+
+Hoặc chạy toàn bộ quy trình sample (sạch dữ liệu cũ) bằng một lệnh duy nhất:
+```bash
+npm run pipeline:sample:clean
+```
 
 ## 5. Quy trình chạy full
 Thu thập dữ liệu đầy đủ từ nguồn Nhà thuốc Long Châu:
