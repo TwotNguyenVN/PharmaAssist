@@ -41,6 +41,33 @@ Hoặc chạy toàn bộ quy trình sample (sạch dữ liệu cũ) bằng một
 npm run pipeline:sample:clean
 ```
 
+### 💡 Hướng dẫn chạy trên hệ điều hành Windows
+Đối với máy chạy Windows, lệnh `npm run pipeline:sample:clean` có thể bị lỗi do Command Prompt hoặc PowerShell mặc định không hỗ trợ các lệnh shell của Linux (`rm`, `mkdir`). Bạn có thể chạy theo một trong các cách sau:
+
+#### Cách 1: Chạy trực tiếp qua Git Bash hoặc WSL
+Mở **Git Bash** hoặc **WSL (Windows Subsystem for Linux)**, di chuyển vào thư mục `tools/data-collector` và chạy trực tiếp script:
+```bash
+bash scripts/run_sample_pipeline.sh
+```
+
+#### Cách 2: Cấu hình npm sử dụng Git Bash làm Shell mặc định
+Cách này cho phép bạn tiếp tục sử dụng Command Prompt hoặc PowerShell thông thường để chạy lệnh `npm run pipeline:sample:clean`.
+1. Mở Command Prompt hoặc PowerShell và chạy lệnh cấu hình sau (điều chỉnh đường dẫn đến file `bash.exe` của Git trên máy của bạn nếu khác):
+   ```bash
+   npm config set script-shell "C:\\Program Files\\Git\\bin\\bash.exe"
+   ```
+2. Sau khi chạy cấu hình trên, bạn có thể chạy lệnh gộp trực tiếp ở bất kỳ terminal nào trên Windows:
+   ```bash
+   npm run pipeline:sample:clean
+   ```
+3. *(Tùy chọn)* Nếu muốn hoàn tác (reset) npm shell về mặc định sau này, chạy:
+   ```bash
+   npm config delete script-shell
+   ```
+
+*Lưu ý: File script `.sh` đã được cấu hình `.gitattributes` bắt buộc định dạng xuống dòng LF (Unix-style) để tránh lỗi cú pháp `\r: command not found` khi chạy bằng Git Bash trên Windows.*
+
+
 ## 5. Quy trình chạy full
 Thu thập dữ liệu đầy đủ từ nguồn Nhà thuốc Long Châu:
 - `npm run collect:links`: Thu thập danh sách link sản phẩm từ tất cả danh mục.
