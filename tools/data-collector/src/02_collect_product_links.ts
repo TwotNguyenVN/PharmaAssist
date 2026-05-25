@@ -6,6 +6,7 @@ import { chromium, type Page } from 'playwright';
 import * as path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import * as fs from 'node:fs';
+import * as readline from 'node:readline';
 
 import { readJson, writeJson, ensureDir } from './utils/file.js';
 import { logInfo, logError, logWarn } from './utils/logger.js';
@@ -13,6 +14,45 @@ import { randomDelay, delay } from './utils/delay.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT_DIR = path.resolve(__dirname, '../');
+
+function askToContinue(promptMessage: string): Promise<boolean> {
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+  });
+  
+  return new Promise((resolve) => {
+    rl.question(promptMessage, (answer) => {
+      rl.close();
+      const normalized = answer.trim().toLowerCase();
+      resolve(normalized === 'y' || normalized === 'yes' || normalized === '');
+    });
+  });
+}
+
+function isCloudflareBlocked(extractedLinks: ProductLinkRaw[]): boolean {
+  if (extractedLinks.length === 0) return true; // Empty page (usually blocked API)
+  if (extractedLinks.length > 12) return false; // Actual product list loaded
+  
+  const footerStaticUrls = [
+    'klenzit-15g-3330.html',
+    'berocca-1515.html',
+    'farzincol-10mg-3786.html',
+    'efferalgan-500mg-1620.html',
+    'clorpheniramin-4-200v-4228.html',
+    'enterogemina-5ml-sanofi-20-ong-17315.html',
+    'smecta-2236.html',
+    'telfast-180mg-2051.html',
+    'kremils-s-3315.html',
+    'eugica-vien-uong-dieu-tri-ho-cam-cum-490.html',
+    'differin-0130mg-17372.html'
+  ];
+  
+  // Check if ALL extracted links belong to the footer static list
+  return extractedLinks.every(link => 
+    footerStaticUrls.some(staticUrl => link.product_url.includes(staticUrl))
+  );
+}
 
 // Load env
 const envPath = path.join(ROOT_DIR, '.env');
@@ -68,12 +108,26 @@ async function autoScrollAndLoadMore(page: Page, maxScrolls: number, maxClicks: 
     
     // Attempt to click "Load More" / "Xem thêm"
     try {
-      const buttons = await page.locator('button, a').filter({ hasText: /xem thêm|tải thêm|hiển thị thêm/i }).all();
+      const buttons = await page.locator('button').filter({ hasText: /xem thêm|tải thêm|hiển thị thêm/i }).all();
       for (const btn of buttons) {
         if (await btn.isVisible() && clickCount < maxClicks) {
-          await btn.click({ force: true });
+          // Hover before clicking to mimic real user behavior and prevent anti-bot trigger
+          await btn.hover({ timeout: 2000 }).catch(() => {});
+          
+          // Fast random delay before clicking (300ms - 800ms)
+          const preClickDelay = Math.floor(Math.random() * 500) + 300;
+          await delay(preClickDelay);
+          
+          await btn.click({ force: false }).catch(async () => {
+            // Fallback to force click if standard click is intercepted
+            await btn.click({ force: true }).catch(() => {});
+          });
+          
           clickCount++;
-          await delay(2000); // Wait for new products to render
+          
+          // Fast random delay after click for products to render (1500ms - 2500ms)
+          const postClickDelay = Math.floor(Math.random() * 1000) + 1500;
+          await delay(postClickDelay);
           break; 
         }
       }
@@ -110,45 +164,52 @@ async function extractProductLinks(page: Page, cat: CategoryRaw, baseUrl: string
         fullUrl = baseUrl + fullUrl;
       }
       
-      // Keep within domain and look for typical product patterns (.html or ends with a number)
-      if (fullUrl.startsWith(baseUrl) && (fullUrl.includes('.html') || fullUrl.match(/-\d+$/))) {
-        
-        let name = a.textContent?.replace(/\s+/g, ' ').trim() || '';
-        // If the text is generic, try grabbing the title
-        if (name.toLowerCase() === 'xem thêm' || name.toLowerCase() === 'chi tiết') {
-           name = a.getAttribute('title') || '';
-        }
+      // Clean query and hash first
+      const cleanedUrl = fullUrl.split('?')[0].split('#')[0];
+      
+      try {
+        const path = new URL(cleanedUrl).pathname;
+        const isValidSegment = /^\/(thuoc|thuc-pham-chuc-nang|trang-thiet-bi-y-te|duoc-my-pham|cham-soc-ca-nhan)\//.test(path);
+        const isBlacklisted = /\/(chinh-sach|tin-tuc|he-thong-cua-hang|khuyen-mai|tuyen-dung|lien-he)\//.test(path);
 
-        const img = a.querySelector('img');
-        const imageUrl = img ? (img.getAttribute('src') || img.getAttribute('data-src')) : null;
+        if (cleanedUrl.startsWith(baseUrl) && isValidSegment && !isBlacklisted && (cleanedUrl.includes('.html') || cleanedUrl.match(/-\d+$/))) {
+          let name = a.textContent?.replace(/\s+/g, ' ').trim() || '';
+          if (name.toLowerCase() === 'xem thêm' || name.toLowerCase() === 'chi tiết') {
+             name = a.getAttribute('title') || '';
+          }
 
-        let priceText = null;
-        let parent: HTMLElement | null = a.parentElement;
-        let depth = 0;
-        // Search up to 3 levels up for a price element
-        while (parent && depth < 3) {
-           const textNodes = Array.from(parent.querySelectorAll('*')).map(el => el.textContent || '');
-           const priceEl = textNodes.find(t => (t.includes('đ') || t.includes('₫') || t.includes('VNĐ')) && t.match(/\d/));
-           if (priceEl) {
-             priceText = priceEl.replace(/\s+/g, ' ').trim();
-             break;
-           }
-           parent = parent.parentElement;
-           depth++;
-        }
+          const img = a.querySelector('img');
+          const imageUrl = img ? (img.getAttribute('src') || img.getAttribute('data-src')) : null;
 
-        if (name.length > 3 || fullUrl) {
-          results.push({
-            category_code: cat.category_code,
-            category_name: cat.category_name,
-            category_url: cat.category_url,
-            product_name: name.length > 0 ? name : null,
-            product_url: fullUrl.split('?')[0].split('#')[0], // remove query/hash
-            image_url: imageUrl,
-            price_text: priceText,
-            collected_at: collectedAt
-          });
+          let priceText = null;
+          let parent: HTMLElement | null = a.parentElement;
+          let depth = 0;
+          while (parent && depth < 3) {
+             const textNodes = Array.from(parent.querySelectorAll('*')).map(el => el.textContent || '');
+             const priceEl = textNodes.find(t => (t.includes('đ') || t.includes('₫') || t.includes('VNĐ')) && t.match(/\d/));
+             if (priceEl) {
+               priceText = priceEl.replace(/\s+/g, ' ').trim();
+               break;
+             }
+             parent = parent.parentElement;
+             depth++;
+          }
+
+          if (name.length > 3 || cleanedUrl) {
+            results.push({
+              category_code: cat.category_code,
+              category_name: cat.category_name,
+              category_url: cat.category_url,
+              product_name: name.length > 0 ? name : null,
+              product_url: cleanedUrl,
+              image_url: imageUrl,
+              price_text: priceText,
+              collected_at: collectedAt
+            });
+          }
         }
+      } catch (urlErr) {
+        // Skip invalid URL formats
       }
     }
     return results;
@@ -163,10 +224,13 @@ async function main(): Promise<void> {
   const headlessEnv = process.env.HEADLESS !== 'false';
   const minDelay = parseInt(process.env.REQUEST_DELAY_RANDOM_MIN_MS ?? '2000', 10);
   const maxDelay = parseInt(process.env.REQUEST_DELAY_RANDOM_MAX_MS ?? '5000', 10);
-  const maxScrollRounds = parseInt(process.env.MAX_SCROLL_ROUNDS ?? '30', 10);
-  const maxLoadMore = parseInt(process.env.MAX_LOAD_MORE_CLICKS ?? '30', 10);
   const mode = process.env.CRAWL_MODE ?? 'sample';
   const maxProducts = parseInt(process.env.MAX_PRODUCTS ?? '200', 10);
+  
+  const defaultScroll = mode === 'sample' ? '3' : '30';
+  const defaultLoadMore = mode === 'sample' ? '0' : '30';
+  const maxScrollRounds = parseInt(process.env.MAX_SCROLL_ROUNDS ?? defaultScroll, 10);
+  const maxLoadMore = parseInt(process.env.MAX_LOAD_MORE_CLICKS ?? defaultLoadMore, 10);
 
   const rawCategoriesPath = path.join(ROOT_DIR, 'data/raw/categories.raw.json');
   const urlsPath = path.join(ROOT_DIR, 'category_urls.json');
@@ -193,7 +257,29 @@ async function main(): Promise<void> {
 
   // Filter: If a category has children in the dataset, skip it (prioritize leaf categories)
   const parentCodes = new Set(allCats.map(c => c.parent_category_code).filter(Boolean));
-  const toCrawl = allCats.filter(cat => !parentCodes.has(cat.category_code));
+  let toCrawl = allCats.filter(cat => !parentCodes.has(cat.category_code));
+
+  // Skip alphabetical A-Z search pages (they don't contain direct product grids and cause duplicate issues)
+  toCrawl = toCrawl.filter(cat => !cat.category_url.includes('/tra-cuu-thuoc'));
+
+  // Sync with enabled configurations in category_urls.json
+  function getRootCode(code: string): string {
+    if (code.startsWith('CAT_THUOC')) return 'CAT_THUOC';
+    if (code.startsWith('CAT_TPCN')) return 'CAT_TPCN';
+    if (code.startsWith('CAT_TBYT')) return 'CAT_TBYT';
+    if (code.startsWith('CAT_DUOC_MY_PHAM')) return 'CAT_DUOC_MY_PHAM';
+    if (code.startsWith('CAT_CHAM_SOC_CA_NHAN')) return 'CAT_CHAM_SOC_CA_NHAN';
+    return code;
+  }
+
+  if (fs.existsSync(urlsPath)) {
+    const defs = readJson<CategoryUrlDef[]>(urlsPath, []);
+    const enabledRoots = new Set(defs.filter(d => d.enabled).map(d => d.categoryCode));
+    toCrawl = toCrawl.filter(cat => {
+      const rootCode = getRootCode(cat.category_code);
+      return enabledRoots.has(rootCode);
+    });
+  }
 
   logInfo(`Found ${toCrawl.length} leaf categories to crawl (mode: ${mode}).`);
 
@@ -208,34 +294,100 @@ async function main(): Promise<void> {
   const uniqueLinks = new Map<string, ProductLinkRaw>();
   const duplicateUrls: string[] = [];
   let errorCount = 0;
+  let consecutiveNoNewLinks = 0;
 
   for (const cat of toCrawl) {
-    if (mode === 'sample' && uniqueLinks.size >= maxProducts) {
-      logInfo(`Reached MAX_PRODUCTS (${maxProducts}) in sample mode. Stopping early.`);
-      break;
+    if (mode === 'sample') {
+      if (uniqueLinks.size >= maxProducts) {
+        logInfo(`Reached MAX_PRODUCTS (${maxProducts}) in sample mode. Stopping early.`);
+        break;
+      }
+      if (consecutiveNoNewLinks >= 5) {
+        logInfo(`Detected 5 consecutive categories with 0 new links in sample mode. Stopping early to prevent bottleneck.`);
+        break;
+      }
     }
 
     logInfo(`Crawling category: ${cat.category_name} (${cat.category_url})`);
     
     try {
-      await page.goto(cat.category_url, { waitUntil: 'domcontentloaded', timeout: 30000 });
+      await page.goto(cat.category_url, { waitUntil: 'networkidle', timeout: 30000 });
       
       const baseUrl = new URL(cat.category_url).origin;
       await autoScrollAndLoadMore(page, maxScrollRounds, maxLoadMore);
       
-      const extracted = await extractProductLinks(page, cat, baseUrl);
+      let extracted = await extractProductLinks(page, cat, baseUrl);
       
-      let newCount = 0;
-      for (const link of extracted) {
-        if (uniqueLinks.has(link.product_url)) {
-          duplicateUrls.push(link.product_url);
+      let isBlocked = isCloudflareBlocked(extracted);
+      if (isBlocked) {
+        logWarn(`\n================================================================================`);
+        logWarn(`[WARNING] CLOUDFLARE RATE LIMIT DETECTED!`);
+        logWarn(`Category "${cat.category_name}" returned only static advertising links.`);
+        logWarn(`Your IP is currently blocked/rate-limited by Cloudflare WAF.`);
+        logWarn(`--------------------------------------------------------------------------------`);
+        logWarn(`ACTION REQUIRED: Please reset your IP now (e.g. toggle Airplane mode on/off on your 4G device).`);
+        logWarn(`================================================================================\n`);
+        
+        let ipResetDone = false;
+        while (!ipResetDone) {
+          const proceed = await askToContinue(`Have you reset your IP? Press 'y' (or Enter) to retry, or 'n' to skip: `);
+          if (proceed) {
+            logInfo(`Retrying category: ${cat.category_name}...`);
+            await page.goto(cat.category_url, { waitUntil: 'networkidle', timeout: 30000 });
+            await autoScrollAndLoadMore(page, maxScrollRounds, maxLoadMore);
+            extracted = await extractProductLinks(page, cat, baseUrl);
+            
+            if (!isCloudflareBlocked(extracted)) {
+              let retryNewCount = 0;
+              for (const link of extracted) {
+                if (uniqueLinks.has(link.product_url)) {
+                  duplicateUrls.push(link.product_url);
+                } else {
+                  uniqueLinks.set(link.product_url, link);
+                  retryNewCount++;
+                }
+              }
+              logInfo(`Retry successful! Found ${extracted.length} links (${retryNewCount} new). Total unique: ${uniqueLinks.size}`);
+              ipResetDone = true;
+              consecutiveNoNewLinks = 0;
+              break;
+            } else {
+              logWarn(`Retry failed. Still getting static footer links. Cloudflare is still blocking this IP.`);
+            }
+          } else {
+            logWarn(`Skipping retry for category: ${cat.category_name}.`);
+            // Add what we currently have (the static links) to avoid losing them
+            for (const link of extracted) {
+              if (uniqueLinks.has(link.product_url)) {
+                duplicateUrls.push(link.product_url);
+              } else {
+                uniqueLinks.set(link.product_url, link);
+              }
+            }
+            ipResetDone = true;
+            consecutiveNoNewLinks++;
+            break;
+          }
+        }
+      } else {
+        let newCount = 0;
+        for (const link of extracted) {
+          if (uniqueLinks.has(link.product_url)) {
+            duplicateUrls.push(link.product_url);
+          } else {
+            uniqueLinks.set(link.product_url, link);
+            newCount++;
+          }
+        }
+        
+        logInfo(`Found ${extracted.length} links (${newCount} new). Total unique: ${uniqueLinks.size}, Duplicates: ${duplicateUrls.length}`);
+        
+        if (newCount === 0) {
+          consecutiveNoNewLinks++;
         } else {
-          uniqueLinks.set(link.product_url, link);
-          newCount++;
+          consecutiveNoNewLinks = 0;
         }
       }
-      
-      logInfo(`Found ${extracted.length} links (${newCount} new). Total unique: ${uniqueLinks.size}, Duplicates: ${duplicateUrls.length}`);
       
     } catch (err) {
       logError(`Error processing category ${cat.category_name}`, err);
