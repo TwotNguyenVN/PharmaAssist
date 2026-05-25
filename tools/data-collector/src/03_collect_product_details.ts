@@ -39,8 +39,8 @@ async function main(): Promise<void> {
   const mode = process.env.CRAWL_MODE || 'sample';
   const headlessEnv = process.env.HEADLESS !== 'false';
   const batchSize = parseInt(process.env.BATCH_SIZE || '10', 10);
-  const minDelay = parseInt(process.env.MIN_DELAY || '1000', 10);
-  const maxDelay = parseInt(process.env.MAX_DELAY || '3000', 10);
+  const minDelay = parseInt(process.env.REQUEST_DELAY_RANDOM_MIN_MS || '2000', 10);
+  const maxDelay = parseInt(process.env.REQUEST_DELAY_RANDOM_MAX_MS || '5000', 10);
   const maxProducts = parseInt(process.env.MAX_PRODUCTS || '10', 10);
   const resume = process.env.RESUME !== 'false';
   const linksPath = path.join(ROOT_DIR, 'data/raw/product_links.raw.json');
