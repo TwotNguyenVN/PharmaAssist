@@ -93,3 +93,12 @@ Jira sẽ tự động liên kết khi tìm thấy Issue Key nằm ở một tro
 Khi đặt tên nhánh đúng chuẩn (ví dụ: `feature/PAC-2`) và push lên GitHub:
 - Bên phải màn hình chi tiết của ticket `PAC-2` trên Jira (mục **Development**) sẽ tự động xuất hiện nhánh, commit và Pull Request tương ứng.
 - Trạng thái của ticket trên Jira có thể tự động chuyển từ **To Do** ➡️ **In Progress** thông qua cấu hình quy tắc Jira Automation khi tạo nhánh mới.
+
+### 6.4. Quy tắc phân tách nhánh theo từng nhiệm vụ (Task-based Branching Rules)
+Để giữ mã nguồn sạch và quản lý chính xác tiến độ của từng hạng mục trên Jira:
+- **Tạo nhánh riêng biệt:** Mỗi khi bắt đầu thực hiện bất kỳ nhiệm vụ nào (Epic, Story, Task, Bug), lập trình viên **bắt buộc phải tạo một nhánh mới** từ nhánh `develop` sạch và mới nhất. Tên nhánh phải chứa đúng `ISSUE-KEY` của nhiệm vụ đó.
+  * *Ví dụ:* Khi làm task `PAC-44`, hãy tạo nhánh có chứa `PAC-44` (như `feature/PAC-44` hoặc `PAC-44-login-api`). Tiến hành code, commit và push code lên chính nhánh này.
+- **Không code chồng chéo:** Tuyệt đối không viết đè code của nhiệm vụ mới lên nhánh cũ của nhiệm vụ khác. 
+- **Phân tách công việc rõ ràng:** Khi chuyển sang làm phần việc tiếp theo, phải checkout về nhánh gốc (`develop`), kéo code mới nhất, và tạo một nhánh mới hoàn toàn chứa đúng `ISSUE-KEY` của nhiệm vụ mới đó để thực hiện.
+- **Áp dụng cho mọi cấp độ:** Quy tắc tạo nhánh và push code tương ứng này áp dụng đồng nhất cho cả Epic, Story, Task hay Bug.
+
