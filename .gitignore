@@ -46,3 +46,10 @@ tools/data-collector/data/raw/
 tools/data-collector/data/output/
 tools/data-collector/data/state/
 tools/data-collector/logs/
+
+# Database Scraped Raw Data & State
+/database/raw/
+/database/normalized/
+/database/output/
+/database/state/
+
