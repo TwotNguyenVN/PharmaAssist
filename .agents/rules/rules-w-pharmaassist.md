@@ -58,10 +58,8 @@ Tập hợp các nguyên tắc và chỉ dẫn dành cho AI Agent khi tham gia p
   - AI Pharmacist Copilot chỉ giải thích thông tin và hỗ trợ soạn ghi chú nháp, không đưa ra quyết định y tế.
   - Tuyệt đối không commit file cấu hình nhạy cảm `.env`, API key hoặc thông tin credentials lên git.
 
-## 5. Quản Lý Phiên Bản & Tích Hợp (Git & Jira Integration)
+## 5. Quản Lý Phiên Bản (Git Integration)
 - **Quy trình làm việc với Git/GitHub:** Khi thực hiện bất kỳ thao tác nào liên quan đến Git (tạo nhánh, commit, merge, push code, tạo Pull Request), AI Agent bắt buộc phải đọc và tuân thủ nghiêm ngặt quy trình được định nghĩa chi tiết tại file [git-workflows.md](file:///Users/twot/Documents/HKII_NAM_3/16_Cong_Nghe_Pham_Mem/PharmaAssist/git-workflows.md).
-- **Liên kết Jira:** Mỗi commit hoặc pull request bắt buộc phải được gắn kèm mã issue key của dự án Jira (ví dụ: `PAC-xx`).
-  - *Ví dụ:* `feat(POS): PAC-42 implement rule-based drug interaction warning`.
 - **Bảo mật file cấu hình (.gitignore):** Đảm bảo tuyệt đối không push các file chứa thông tin nhạy cảm (`.env`, `.env.local`, API keys, certificates) và các thư mục phụ thuộc (`node_modules`, `dist`, `.next`) lên GitHub. Luôn cập nhật `.gitignore` đầy đủ.
 
 
