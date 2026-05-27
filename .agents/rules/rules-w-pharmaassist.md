@@ -61,5 +61,35 @@ Tập hợp các nguyên tắc và chỉ dẫn dành cho AI Agent khi tham gia p
 ## 5. Quản Lý Phiên Bản (Git Integration)
 - **Quy trình làm việc với Git/GitHub:** Khi thực hiện bất kỳ thao tác nào liên quan đến Git (tạo nhánh, commit, merge, push code, tạo Pull Request), AI Agent bắt buộc phải đọc và tuân thủ nghiêm ngặt quy trình được định nghĩa chi tiết tại file [git-workflows.md](file:///Users/twot/Documents/HKII_NAM_3/16_Cong_Nghe_Pham_Mem/PharmaAssist/git-workflows.md).
 - **Bảo mật file cấu hình (.gitignore):** Đảm bảo tuyệt đối không push các file chứa thông tin nhạy cảm (`.env`, `.env.local`, API keys, certificates) và các thư mục phụ thuộc (`node_modules`, `dist`, `.next`) lên GitHub. Luôn cập nhật `.gitignore` đầy đủ.
+## 6. Liên kết Tác vụ Jira & Git (Jira & Git Integration)
+Để Jira tự động nhận diện và liên kết nhánh (branch), commit, hoặc Pull Request (PR) của bạn với một Epic, Story, hay Task cụ thể, Jira sử dụng cơ chế quét Issue Key (Mã công việc - ví dụ: `PAC-2`, `PAC-126`, `PAC-15`).
 
+Dưới đây là nguyên lý và cách thực hiện khi làm việc với Git:
 
+### 6.1. Nguyên tắc vàng: Đưa "Issue Key" vào Tên Nhánh hoặc Commit
+Jira sẽ tự động liên kết khi tìm thấy Issue Key nằm ở một trong các vị trí sau:
+
+- **A. Đặt trong tên nhánh (Branch Name) — Cách khuyên dùng và phổ biến nhất**
+  Khi tạo nhánh mới từ terminal, luôn chèn mã công việc vào đầu hoặc trong tên nhánh.
+  * Cú pháp: `feature/ISSUE-KEY-ten-nhanh` hoặc `fix/ISSUE-KEY-ten-nhanh`
+  * Ví dụ:
+    * `feature/PAC-2` (Epic 2)
+    * `feature/PAC-12-login-page` (Story hoặc Task số 12)
+    * `bugfix/PAC-45-fix-db-error` (Bug số 45)
+
+- **B. Đặt trong nội dung commit (Commit Message)**
+  Nếu tên nhánh không chứa mã, Jira vẫn nhận diện được nếu các commit bên trong nhánh đó có chứa mã công việc.
+  * Ví dụ:
+    * `git commit -m "PAC-2: viết API đăng nhập và phân quyền"`
+    * `git commit -m "feat(PAC-12): thêm nút đăng nhập Google"`
+
+- **C. Đặt trong tiêu đề Pull Request (PR Title)**
+  Khi mở Pull Request trên GitHub, chỉ cần tiêu đề PR chứa mã `PAC-2` hoặc `PAC-12`, Jira cũng sẽ tự động liên kết cả PR đó vào ticket tương ứng.
+
+### 6.2. Điều kiện tiên quyết (Prerequisite)
+Để tính năng này hoạt động, dự án cần phải được tích hợp giữa Jira và GitHub (hoặc GitLab/Bitbucket) thông qua việc cài đặt ứng dụng **GitHub for Jira** trên Atlassian Marketplace và kết nối repository `PharmaAssist` với Jira.
+
+### 6.3. Kết quả hiển thị và Tự động hóa trên Jira
+Khi đặt tên nhánh đúng chuẩn (ví dụ: `feature/PAC-2`) và push lên GitHub:
+- Bên phải màn hình chi tiết của ticket `PAC-2` trên Jira (mục **Development**) sẽ tự động xuất hiện nhánh, commit và Pull Request tương ứng.
+- Trạng thái của ticket trên Jira có thể tự động chuyển từ **To Do** ➡️ **In Progress** thông qua cấu hình quy tắc Jira Automation khi tạo nhánh mới.
