@@ -60,6 +60,20 @@ Tập hợp các nguyên tắc và chỉ dẫn dành cho AI Agent khi tham gia p
 
 ## 5. Quản Lý Phiên Bản (Git Integration)
 - **Quy trình làm việc với Git/GitHub:** Khi thực hiện bất kỳ thao tác nào liên quan đến Git (tạo nhánh, commit, merge, push code, tạo Pull Request), AI Agent bắt buộc phải đọc và tuân thủ nghiêm ngặt quy trình được định nghĩa chi tiết tại file [git-workflows.md](file:///Users/twot/Documents/HKII_NAM_3/16_Cong_Nghe_Pham_Mem/PharmaAssist/git-workflows.md).
+- **Checklist bắt buộc trước khi Commit:**
+  - Chạy `git status` và `git diff` để kiểm tra danh sách file thay đổi. Đảm bảo không commit nhầm file rác hoặc nhạy cảm.
+  - Sử dụng Agent `commit-writer` để viết commit message. Định dạng bắt buộc: `<type>(PAC-xxx): <mô tả ngắn bằng tiếng Anh>`.
+- **Checklist bắt buộc trước khi Push:**
+  - Chạy kiểm tra biên dịch (`npm run build` hoặc type check thích hợp) để đảm bảo code không bị lỗi cú pháp/TypeScript trên máy local.
+  - Luôn kéo code mới nhất từ develop về bằng `git pull origin develop --rebase` (hoặc merge) để giải quyết xung đột cục bộ trước khi push.
+- **Xác định nhánh đẩy code (Push Branch Selection):** Mỗi khi người dùng yêu cầu push code hoặc commit, AI Agent bắt buộc phải thực hiện các bước sau:
+  1. Phân tích `WORKING-CONTEXT.md` (mục `Active Queues` hoặc `Latest Execution Notes`) hoặc xem các file vừa thay đổi để xác định mã Jira issue key (`PAC-xxx`) hiện tại.
+  2. Tra cứu trong file [.agents/git-skills/branch-on-jira.md](file:///Users/twot/Documents/HKII_NAM_3/16_Cong_Nghe_Pham_Mem/PharmaAssist/.agents/git-skills/branch-on-jira.md) để tìm chính xác tên nhánh Git tương ứng (ví dụ: `feature/PAC-xxx-slug`).
+  3. Kiểm tra xem nhánh hiện tại trên local (`git branch --show-current`) đã đúng chưa. Nếu chưa có nhánh này trên local, hãy tạo nhánh mới từ develop mới nhất bằng `git checkout -b <tên-nhánh-chuẩn>`.
+  4. Thực hiện commit (với commit message chứa đúng mã `PAC-xxx`) và push lên đúng nhánh đã tra cứu đó (`git push origin <tên-nhánh-chuẩn>`).
+- **Nguyên tắc an toàn khi Push:**
+  - Tuyệt đối không dùng `git push --force` hoặc `-f` lên các nhánh dùng chung (`main`, `develop`).
+  - Chỉ push lên đúng nhánh `feature/PAC-xxx-slug` hoặc `fix/PAC-xxx-slug` tương ứng của bạn đã được tra cứu ở trên.
 - **Bảo mật file cấu hình (.gitignore):** Đảm bảo tuyệt đối không push các file chứa thông tin nhạy cảm (`.env`, `.env.local`, API keys, certificates) và các thư mục phụ thuộc (`node_modules`, `dist`, `.next`) lên GitHub. Luôn cập nhật `.gitignore` đầy đủ.
 ## 6. Liên kết Tác vụ Jira & Git (Jira & Git Integration)
 Để Jira tự động nhận diện và liên kết nhánh (branch), commit, hoặc Pull Request (PR) của bạn với một Epic, Story, hay Task cụ thể, Jira sử dụng cơ chế quét Issue Key (Mã công việc - ví dụ: `PAC-2`, `PAC-126`, `PAC-15`).
