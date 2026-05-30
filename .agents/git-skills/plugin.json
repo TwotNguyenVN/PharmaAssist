@@ -1,0 +1,20 @@
+{
+  "name": "git-skills",
+  "version": "1.0.0",
+  "description": "Git Skills",
+  "commands": [
+    {
+      "name": "git-skills",
+      "title": "Git Skills",
+      "description": "Git Skills",
+      "arguments": [
+        {
+          "name": "command",
+          "description": "Command",
+          "type": "string"
+        }
+      ]
+    }
+  ]
+}
+    

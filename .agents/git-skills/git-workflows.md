@@ -25,8 +25,8 @@ Git không chỉ dùng để lưu code mà còn để:
 
 - 🔴 **`main`**: Nhánh chứa code hoàn chỉnh, ổn định nhất. Dùng để deploy (chạy thực tế) hoặc nộp bài, demo. **TUYỆT ĐỐI KHÔNG code trực tiếp trên nhánh này.**
 - 🟡 **`develop`**: Nhánh "hội quân" (Integration Branch). Chứa code mới nhất đã qua kiểm thử cơ bản. Mọi tính năng mới đều phân nhánh từ đây và gộp (merge) về đây.
-- 🟢 **`feature/*`**: Các nhánh dùng để làm tính năng mới. (Ví dụ: `feature/login`, `feature/tour-booking`).
-- 🟠 **`fix/*`** hoặc **`bugfix/*`**: Nhánh dùng để sửa lỗi trong quá trình phát triển. (Ví dụ: `fix/ui-adjustments`).
+- 🟢 **`feature/*`**: Các nhánh dùng để làm tính năng mới. (Ví dụ: `feature/PAC-13-login-system`, `feature/PAC-23-alert-medicine-low-stock`).
+- 🟠 **`fix/*`** hoặc **`bugfix/*`**: Nhánh dùng để sửa lỗi trong quá trình phát triển. (Ví dụ: `fix/PAC-41-record-bug-in-testing-process`).
 - 🔵 **`docs/*`**: Nhánh dùng để cập nhật tài liệu (README, Markdown, UML).
 - 🟣 **`release/*`**: Chuẩn bị bản phát hành, demo hoặc nộp bài.
 - 🔴 **`hotfix/*`**: Sửa lỗi khẩn cấp trực tiếp trên production/main.
@@ -36,12 +36,12 @@ Git không chỉ dùng để lưu code mà còn để:
 ```text
 main
  └── develop
-      ├── feature/auth
-      ├── feature/course-management
-      ├── feature/payment
-      ├── feature/report
-      ├── fix/login-validation
-      └── docs/update-readme
+      ├── feature/PAC-13-login-system
+      ├── feature/PAC-21-management-category-medicine
+      ├── feature/PAC-35-payment-order
+      ├── feature/PAC-38-view-report-revenue
+      ├── fix/PAC-41-record-bug-in-testing-process
+      └── docs/PAC-118-write-readme-and-guide-setup-project
 ```
 
 ### 2.3. Chi tiết từng nhánh
@@ -352,24 +352,24 @@ git commit -m "done"
 ### Mẫu PR tốt
 
 ```text
-Tiêu đề: feat: add course payment flow
+Tiêu đề: feat(PAC-35): add medicine checkout payment flow
 
-Mô tả: PR này thêm luồng mua và thanh toán khóa học.
+Mô tả: PR này thực hiện luồng checkout và thanh toán đơn bán thuốc tại quầy cho POS.
 
 Đã làm:
-- Tạo trang giỏ hàng
-- Tạo trang checkout
-- Gọi API tạo đơn hàng
-- Hiển thị trạng thái thanh toán
+- Tạo giao diện màn hình thanh toán POS (POS Payment Screen)
+- Thiết kế API ghi nhận thanh toán và tạo hóa đơn (invoices)
+- Tạo logic trừ tồn kho sau khi thanh toán thành công
+- Tích hợp kiểm tra tương tác thuốc trước khi checkout
 
 Cách test:
-1. Đăng nhập bằng tài khoản học viên
-2. Chọn một khóa học → Thêm vào giỏ hàng
-3. Vào checkout → Chọn phương thức thanh toán
-4. Kiểm tra trạng thái đơn hàng
+1. Đăng nhập bằng tài khoản nhân viên (Staff) hoặc quản trị (Admin)
+2. Vào màn hình POS → Chọn thuốc (VD: MED001) → Click "Thêm vào giỏ hàng"
+3. Nhấp "Thanh toán" → Chọn phương thức thanh toán (Tiền mặt/Mã QR)
+4. Xác nhận thành công và kiểm tra hóa đơn in ra
 
 Ghi chú:
-- Chưa tích hợp thanh toán thật, đang dùng mock payment.
+- Đã chạy qua script kiểm tra tương tác thuốc rule-based của đơn hàng hoạt động tốt.
 ```
 
 ### Quy tắc PR
@@ -397,7 +397,7 @@ Ghi chú:
 
 ```text
 Chỗ này nên tách API call ra authService để dễ bảo trì hơn.
-Biến này nên đổi tên rõ hơn, ví dụ courseId thay vì id.
+Biến này nên đổi tên rõ hơn, ví dụ medicineId thay vì id.
 Cần xử lý trường hợp API trả lỗi 401.
 ```
 
