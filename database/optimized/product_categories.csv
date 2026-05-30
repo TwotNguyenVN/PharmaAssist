@@ -1,0 +1,258 @@
+category_code,parent_category_code,category_name,category_slug,level
+CAT000001,,Chăm sóc cá nhân,cham-soc-ca-nhan,1
+CAT000002,CAT000001,Hỗ trợ tình dục,ho-tro-tinh-duc,2
+CAT000003,CAT000002,Bao cao su,bao-cao-su,3
+CAT000004,CAT000002,Gel bôi trơn,gel-boi-tron,3
+CAT000005,CAT000001,Thực phẩm - Đồ uống,thuc-pham-do-uong,2
+CAT000006,CAT000005,Kẹo cứng,keo-cung,3
+CAT000007,CAT000005,Nước Yến,nuoc-yen,3
+CAT000008,CAT000005,Nước uống không gas,nuoc-uong-khong-gas,3
+CAT000009,CAT000005,Trà thảo dược,tra-thao-duoc,3
+CAT000010,CAT000005,Đường ăn kiêng,duong-an-kieng,3
+CAT000011,CAT000001,Vệ sinh cá nhân,ve-sinh-ca-nhan,2
+CAT000012,CAT000011,Vệ sinh tai,ve-sinh-tai,3
+CAT000013,CAT000011,Băng vệ sinh,bang-ve-sinh,3
+CAT000014,CAT000001,Chăm sóc răng miệng,cham-soc-rang-mieng,2
+CAT000015,CAT000014,Nước súc miệng,nuoc-suc-mieng,3
+CAT000016,CAT000014,Kem đánh răng,kem-danh-rang,3
+CAT000017,CAT000014,Bàn chải điện,ban-chai-dien,3
+CAT000018,CAT000014,Chỉ nha khoa,chi-nha-khoa,3
+CAT000019,CAT000001,Đồ dùng gia đình,do-dung-gia-dinh,2
+CAT000020,CAT000019,Chống muỗi & côn trùng,chong-muoi-and-con-trung,3
+CAT000021,CAT000019,Đồ dùng cho bé,do-dung-cho-be,3
+CAT000022,CAT000019,Đồ dùng cho mẹ,do-dung-cho-me,3
+CAT000023,CAT000001,Hàng tổng hợp,hang-tong-hop,2
+CAT000024,CAT000023,"Khăn giấy, khăn ướt",khan-giay-khan-uot,3
+CAT000025,CAT000001,Tinh dầu các loại,tinh-dau-cac-loai,2
+CAT000026,CAT000025,Tinh dầu xông,tinh-dau-xong,3
+CAT000027,CAT000025,Tinh dầu massage,tinh-dau-massage,3
+CAT000028,CAT000001,Thiết bị làm đẹp,thiet-bi-lam-dep,2
+CAT000029,CAT000028,Dụng cụ tẩy lông,dung-cu-tay-long,3
+CAT000030,CAT000028,Dụng cụ cạo râu,dung-cu-cao-rau,3
+CAT000031,,Dược mỹ phẩm,duoc-my-pham,1
+CAT000032,CAT000031,Chăm sóc da mặt,cham-soc-da-mat,2
+CAT000033,CAT000032,"Serum, Essence hoặc Ampoule",serum-essence-hoac-ampoule,3
+CAT000034,CAT000032,"Sữa rửa mặt (Kem, gel, sữa)",sua-rua-mat-kem-gel-sua,3
+CAT000035,CAT000032,"Nước tẩy trang, dầu tẩy trang",nuoc-tay-trang-dau-tay-trang,3
+CAT000036,CAT000032,Tẩy tế bào chết,tay-te-bao-chet,3
+CAT000037,CAT000032,Dưỡng da mặt,duong-da-mat,3
+CAT000038,CAT000032,Kem chống nắng da mặt,kem-chong-nang-da-mat,3
+CAT000039,CAT000032,Mặt nạ,mat-na,3
+CAT000040,CAT000032,Toner (nước hoa hồng) / Lotion,toner-nuoc-hoa-hong-lotion,3
+CAT000041,CAT000032,Xịt khoáng,xit-khoang,3
+CAT000042,CAT000031,Chăm sóc cơ thể,cham-soc-co-the,2
+CAT000043,CAT000042,"Sữa tắm, xà bông",sua-tam-xa-bong,3
+CAT000044,CAT000042,Chăm sóc da nứt nẻ,cham-soc-da-nut-ne,3
+CAT000045,CAT000042,Dung dịch vệ sinh phụ nữ,dung-dich-ve-sinh-phu-nu,3
+CAT000046,CAT000042,"Kem dưỡng da tay, chân",kem-duong-da-tay-chan,3
+CAT000047,CAT000042,Massage,massage,3
+CAT000048,CAT000042,"Sữa dưỡng thể, kem dưỡng thể",sua-duong-the-kem-duong-the,3
+CAT000049,CAT000042,Chống nắng toàn thân,chong-nang-toan-than,3
+CAT000050,CAT000042,"Lăn khử mùi, xịt khử mùi",lan-khu-mui-xit-khu-mui,3
+CAT000051,CAT000042,Chăm sóc ngực,cham-soc-nguc,3
+CAT000052,CAT000031,Giải pháp làn da,giai-phap-lan-da,2
+CAT000053,CAT000052,"Kem hỗ trợ giảm mụn, gel hỗ trợ giảm mụn",kem-ho-tro-giam-mun-gel-ho-tro-giam-mun,3
+CAT000054,CAT000052,"Hỗ trợ mờ sẹo, mờ vết thâm",ho-tro-mo-seo-mo-vet-tham,3
+CAT000055,CAT000052,"Da mẫn cảm, dễ kích ứng",da-man-cam-de-kich-ung,3
+CAT000056,CAT000052,"Dưỡng da bị khô, thiếu ẩm",duong-da-bi-kho-thieu-am,3
+CAT000057,CAT000052,"Kem hỗ trợ mờ nám, tàn nhang, đốm nâu",kem-ho-tro-mo-nam-tan-nhang-dom-nau,3
+CAT000058,CAT000052,"Da sạm, xỉn màu",da-sam-xin-mau,3
+CAT000059,CAT000052,Da nhạy cảm,da-nhay-cam,3
+CAT000060,CAT000052,"Hỗ trợ tái tạo, cải thiện da lão hoá",ho-tro-tai-tao-cai-thien-da-lao-hoa,3
+CAT000061,CAT000031,Chăm sóc tóc - da đầu,cham-soc-toc-da-dau,2
+CAT000062,CAT000061,Dầu gội dầu xả,dau-goi-dau-xa,3
+CAT000063,CAT000061,Dầu gội giúp giảm nấm và ngứa da đầu,dau-goi-giup-giam-nam-va-ngua-da-dau,3
+CAT000064,CAT000061,"Dưỡng tóc, ủ tóc",duong-toc-u-toc,3
+CAT000065,CAT000061,Chăm sóc chuyên sâu cho tóc,cham-soc-chuyen-sau-cho-toc,3
+CAT000066,CAT000031,Mỹ phẩm trang điểm,my-pham-trang-diem,2
+CAT000067,CAT000066,Son môi,son-moi,3
+CAT000068,CAT000066,Trang điểm mặt,trang-diem-mat,3
+CAT000069,CAT000031,Chăm sóc da vùng mắt,cham-soc-da-vung-mat,2
+CAT000070,CAT000069,Dưỡng da mắt,duong-da-mat,3
+CAT000071,CAT000069,Hỗ trợ cải thiện nếp nhăn vùng mắt,ho-tro-cai-thien-nep-nhan-vung-mat,3
+CAT000072,CAT000031,Sản phẩm từ thiên nhiên,san-pham-tu-thien-nhien,2
+CAT000073,CAT000072,Tinh dầu,tinh-dau,3
+CAT000074,,Thiết bị y tế,thiet-bi-y-te,1
+CAT000075,CAT000074,Dụng cụ y tế,dung-cu-y-te,2
+CAT000076,CAT000075,Kim các loại,kim-cac-loai,3
+CAT000077,CAT000075,Dụng cụ vệ sinh mũi,dung-cu-ve-sinh-mui,3
+CAT000078,CAT000075,Các dụng cụ và sản phẩm khác,cac-dung-cu-va-san-pham-khac,3
+CAT000079,CAT000075,Máy xông khí dung,may-xong-khi-dung,3
+CAT000080,CAT000075,Dụng cụ vệ sinh tai,dung-cu-ve-sinh-tai,3
+CAT000081,CAT000075,Máy massage,may-massage,3
+CAT000082,CAT000075,Vớ ngăn tĩnh mạch,vo-ngan-tinh-mach,3
+CAT000083,CAT000075,Găng tay,gang-tay,3
+CAT000084,CAT000075,Túi chườm,tui-chuom,3
+CAT000085,CAT000075,Đai nẹp,dai-nep,3
+CAT000086,CAT000075,Đai lưng,dai-lung,3
+CAT000087,CAT000074,Dụng cụ theo dõi,dung-cu-theo-doi,2
+CAT000088,CAT000087,Nhiệt kế,nhiet-ke,3
+CAT000089,CAT000087,Máy đo huyết áp,may-do-huyet-ap,3
+CAT000090,CAT000087,Thử thai,thu-thai,3
+CAT000091,CAT000087,"Máy, que thử đường huyết",may-que-thu-duong-huyet,3
+CAT000092,CAT000087,Kit Test Covid,kit-test-covid,3
+CAT000093,CAT000087,Cân sức khỏe,can-suc-khoe,3
+CAT000094,CAT000087,Máy đo SpO2,may-do-spo2,3
+CAT000095,CAT000074,Dụng cụ sơ cứu,dung-cu-so-cuu,2
+CAT000096,CAT000095,"Miếng dán giảm đau, hạ sốt",mieng-dan-giam-dau-ha-sot,3
+CAT000097,CAT000095,"Xịt giảm đau, kháng viêm",xit-giam-dau-khang-viem,3
+CAT000098,CAT000095,Băng y tế,bang-y-te,3
+CAT000099,CAT000095,Chăm sóc vết thương,cham-soc-vet-thuong,3
+CAT000100,CAT000095,Bông y tế,bong-y-te,3
+CAT000101,CAT000095,"Cồn, nước sát trùng, nước muối",con-nuoc-sat-trung-nuoc-muoi,3
+CAT000102,CAT000074,Khẩu trang,khau-trang,2
+CAT000103,CAT000102,Khẩu trang y tế,khau-trang-y-te,3
+CAT000104,,Thuốc,thuoc,1
+CAT000105,CAT000104,"Thuốc kháng sinh, kháng nấm",thuoc-khang-sinh-khang-nam,2
+CAT000106,CAT000105,Thuốc trị giun sán,thuoc-tri-giun-san,3
+CAT000107,CAT000105,Thuốc kháng virus,thuoc-khang-virus,3
+CAT000108,CAT000105,Thuốc kháng nấm,thuoc-khang-nam,3
+CAT000109,CAT000105,Thuốc kháng sinh,thuoc-khang-sinh,3
+CAT000110,CAT000105,Siro kháng sinh,siro-khang-sinh,3
+CAT000111,CAT000105,Thuốc trị sốt rét,thuoc-tri-sot-ret,3
+CAT000112,CAT000105,Thuốc kháng lao,thuoc-khang-lao,3
+CAT000113,CAT000104,Thuốc ung thư,thuoc-ung-thu,2
+CAT000114,CAT000113,Thuốc điều trị ung thư,thuoc-dieu-tri-ung-thu,3
+CAT000115,CAT000104,Thuốc tim mạch & máu,thuoc-tim-mach-and-mau,2
+CAT000116,CAT000115,Thuốc tăng cường tuần hoàn não,thuoc-tang-cuong-tuan-hoan-nao,3
+CAT000117,CAT000115,"Thuốc trị trĩ, suy giãn tĩnh mạch",thuoc-tri-tri-suy-gian-tinh-mach,3
+CAT000118,CAT000115,Thuốc tim mạch huyết áp,thuoc-tim-mach-huyet-ap,3
+CAT000119,CAT000115,Thuốc trị mỡ máu,thuoc-tri-mo-mau,3
+CAT000120,CAT000115,Thuốc trị thiếu máu,thuoc-tri-thieu-mau,3
+CAT000121,CAT000115,Thuốc chống đông máu,thuoc-chong-dong-mau,3
+CAT000122,CAT000115,Thuốc cầm máu,thuoc-cam-mau,3
+CAT000123,CAT000104,Thuốc hệ thần kinh,thuoc-he-than-kinh,2
+CAT000124,CAT000123,Thuốc thần kinh,thuoc-than-kinh,3
+CAT000125,CAT000104,Thuốc tiêu hoá & gan mật,thuoc-tieu-hoa-and-gan-mat,2
+CAT000126,CAT000125,Thuốc dạ dày,thuoc-da-day,3
+CAT000127,CAT000125,Thuốc tiêu hoá,thuoc-tieu-hoa,3
+CAT000128,CAT000125,Thuốc trị bệnh gan,thuoc-tri-benh-gan,3
+CAT000129,CAT000125,Thuốc trị tiêu chảy,thuoc-tri-tieu-chay,3
+CAT000130,CAT000125,Thuốc trị táo bón,thuoc-tri-tao-bon,3
+CAT000131,CAT000125,Siro tiêu hoá,siro-tieu-hoa,3
+CAT000132,CAT000125,Thuốc gan mật,thuoc-gan-mat,3
+CAT000133,CAT000125,Thuốc lợi tiểu,thuoc-loi-tieu,3
+CAT000134,CAT000104,Thuốc dị ứng,thuoc-di-ung,2
+CAT000135,CAT000134,Thuốc chống dị ứng,thuoc-chong-di-ung,3
+CAT000136,CAT000104,"Thuốc giải độc, khử độc và hỗ trợ cai nghiện",thuoc-giai-doc-khu-doc-va-ho-tro-cai-nghien,2
+CAT000137,CAT000136,Viên cai thuốc lá,vien-cai-thuoc-la,3
+CAT000138,CAT000136,Cấp cứu giải độc,cap-cuu-giai-doc,3
+CAT000139,CAT000136,Thuốc hỗ trợ cai nghiện ma tuý,thuoc-ho-tro-cai-nghien-ma-tuy,3
+CAT000140,CAT000136,Thuốc cai rượu,thuoc-cai-ruou,3
+CAT000141,CAT000104,Thuốc da liễu,thuoc-da-lieu,2
+CAT000142,CAT000141,Thuốc bôi ngoài da,thuoc-boi-ngoai-da,3
+CAT000143,CAT000141,Thuốc sát khuẩn,thuoc-sat-khuan,3
+CAT000144,CAT000141,Thuốc bôi sẹo - liền sẹo,thuoc-boi-seo-lien-seo,3
+CAT000145,CAT000141,Dầu gội trị gàu,dau-goi-tri-gau,3
+CAT000146,CAT000141,Thuốc trị mụn,thuoc-tri-mun,3
+CAT000147,CAT000104,"Miếng dán, cao xoa, dầu",mieng-dan-cao-xoa-dau,2
+CAT000148,CAT000147,Cao xoa,cao-xoa,3
+CAT000149,CAT000147,Dầu nóng xoa bóp,dau-nong-xoa-bop,3
+CAT000150,CAT000147,Dầu gió,dau-gio,3
+CAT000151,CAT000147,Miếng dán giảm đau,mieng-dan-giam-dau,3
+CAT000152,CAT000147,Miếng dán say tàu xe,mieng-dan-say-tau-xe,3
+CAT000153,CAT000147,Miếng dán và cao dán giảm đau,mieng-dan-va-cao-dan-giam-dau,3
+CAT000154,CAT000104,Cơ - xương - khớp,co-xuong-khop,2
+CAT000155,CAT000154,Thuốc xương khớp,thuoc-xuong-khop,3
+CAT000156,CAT000154,Thuốc giãn cơ,thuoc-gian-co,3
+CAT000157,CAT000154,Thuốc trị gout,thuoc-tri-gout,3
+CAT000158,CAT000154,Thuốc trị thoái hoá khớp,thuoc-tri-thoai-hoa-khop,3
+CAT000159,CAT000104,Thuốc bổ & vitamin,thuoc-bo-and-vitamin,2
+CAT000160,CAT000159,Siro bổ,siro-bo,3
+CAT000161,CAT000159,Thuốc bổ,thuoc-bo,3
+CAT000162,CAT000159,Thuốc tăng cường sức đề kháng,thuoc-tang-cuong-suc-de-khang,3
+CAT000163,CAT000159,Thuốc bù điện giải,thuoc-bu-dien-giai,3
+CAT000164,CAT000159,Bổ xương khớp,bo-xuong-khop,3
+CAT000165,CAT000159,Dinh dưỡng,dinh-duong,3
+CAT000166,CAT000113,Thuốc chống ung thư,thuoc-chong-ung-thu,3
+CAT000167,CAT000104,"Thuốc giảm đau, hạ sốt, kháng viêm",thuoc-giam-dau-ha-sot-khang-viem,2
+CAT000168,CAT000167,Thuốc giảm đau hạ sốt,thuoc-giam-dau-ha-sot,3
+CAT000169,CAT000167,Thuốc giảm đau kháng viêm,thuoc-giam-dau-khang-viem,3
+CAT000170,CAT000167,Thuốc kháng viêm,thuoc-khang-viem,3
+CAT000171,CAT000167,Thuốc trị đau nửa đầu,thuoc-tri-dau-nua-dau,3
+CAT000172,CAT000104,Thuốc hô hấp,thuoc-ho-hap,2
+CAT000173,CAT000172,Siro trị ho cảm,siro-tri-ho-cam,3
+CAT000174,CAT000172,Siro trị sổ mũi,siro-tri-so-mui,3
+CAT000175,CAT000172,Thuốc trị ho cảm,thuoc-tri-ho-cam,3
+CAT000176,CAT000172,"Viên ngậm trị ho, viêm họng",vien-ngam-tri-ho-viem-hong,3
+CAT000177,CAT000172,Thuốc trị hen suyễn,thuoc-tri-hen-suyen,3
+CAT000178,CAT000104,"Thuốc Mắt, Tai, Mũi, Họng",thuoc-mat-tai-mui-hong,2
+CAT000179,CAT000178,Thuốc tai mũi họng,thuoc-tai-mui-hong,3
+CAT000180,CAT000178,Thuốc trị viêm xoang,thuoc-tri-viem-xoang,3
+CAT000181,CAT000178,Thuốc nhỏ mắt,thuoc-nho-mat,3
+CAT000182,CAT000178,Dung dịch súc miệng,dung-dich-suc-mieng,3
+CAT000183,CAT000178,Ống hít mũi,ong-hit-mui,3
+CAT000184,CAT000178,Thuốc xịt hen suyễn,thuoc-xit-hen-suyen,3
+CAT000185,CAT000178,Thuốc tra mắt,thuoc-tra-mat,3
+CAT000186,CAT000178,Thuốc xịt mũi,thuoc-xit-mui,3
+CAT000187,CAT000178,Thuốc bôi răng miệng,thuoc-boi-rang-mieng,3
+CAT000188,CAT000178,Thuốc trị tăng nhãn áp,thuoc-tri-tang-nhan-ap,3
+CAT000189,CAT000178,Thuốc nhỏ tai,thuoc-nho-tai,3
+CAT000190,CAT000123,Thuốc an thần,thuoc-an-than,3
+CAT000191,CAT000123,Thuốc chống trầm cảm,thuoc-chong-tram-cam,3
+CAT000192,CAT000104,Thuốc tiêm chích & dịch truyền,thuoc-tiem-chich-and-dich-truyen,2
+CAT000193,CAT000192,Dịch truyền,dich-truyen,3
+CAT000194,CAT000192,Thuốc tiêm chích,thuoc-tiem-chich,3
+CAT000195,CAT000192,Dung dịch tiêm,dung-dich-tiem,3
+CAT000196,CAT000104,Thuốc tiết niệu - sinh dục,thuoc-tiet-nieu-sinh-duc,2
+CAT000197,CAT000196,Thuốc tránh thai,thuoc-tranh-thai,3
+CAT000198,CAT000196,Thuốc trị bệnh thận,thuoc-tri-benh-than,3
+CAT000199,CAT000196,Thuốc điều hoà kinh nguyệt,thuoc-dieu-hoa-kinh-nguyet,3
+CAT000200,CAT000196,Thuốc đặt âm đạo,thuoc-dat-am-dao,3
+CAT000201,CAT000196,Dung dịch vệ sinh phụ nữ,dung-dich-ve-sinh-phu-nu,3
+CAT000202,CAT000196,Thuốc nội tiết tố,thuoc-noi-tiet-to,3
+CAT000203,CAT000196,Thuốc trị bệnh tuyến tiền liệt,thuoc-tri-benh-tuyen-tien-liet,3
+CAT000204,CAT000196,Thuốc trị rối loạn cương dương,thuoc-tri-roi-loan-cuong-duong,3
+CAT000205,CAT000196,Thuốc trị bệnh tuyến giáp,thuoc-tri-benh-tuyen-giap,3
+CAT000206,CAT000196,Thuốc trị cường giáp,thuoc-tri-cuong-giap,3
+CAT000207,CAT000104,Thuốc tê bôi,thuoc-te-boi,2
+CAT000208,CAT000104,Thuốc trị tiểu đường,thuoc-tri-tieu-duong,2
+CAT000209,CAT000208,Thuốc trị tiểu đường,thuoc-tri-tieu-duong,3
+CAT000210,,Thực phẩm chức năng,thuc-pham-chuc-nang,1
+CAT000211,CAT000210,Vitamin & Khoáng chất,vitamin-and-khoang-chat,2
+CAT000212,CAT000211,Dầu cá - Omega 3,dau-ca-omega-3,3
+CAT000213,CAT000211,Canxi & Vitamin D,canxi-and-vitamin-d,3
+CAT000214,CAT000211,Vitamin tổng hợp,vitamin-tong-hop,3
+CAT000215,CAT000211,Vitamin C,vitamin-c,3
+CAT000216,CAT000211,Sắt - Axit Folic,sat-axit-folic,3
+CAT000217,CAT000211,Vitamin E,vitamin-e,3
+CAT000218,CAT000211,Kẽm - Magie,kem-magie,3
+CAT000219,CAT000210,Miễn dịch - Đề kháng,mien-dich-de-khang,2
+CAT000220,CAT000210,Sinh lý - Nội tiết tố,sinh-ly-noi-tiet-to,2
+CAT000221,CAT000220,Sinh lý nữ,sinh-ly-nu,3
+CAT000222,CAT000220,Sinh lý nam,sinh-ly-nam,3
+CAT000223,CAT000220,Cân bằng nội tiết tố,can-bang-noi-tiet-to,3
+CAT000224,CAT000220,Tiền mãn kinh - mãn kinh,tien-man-kinh-man-kinh,3
+CAT000225,CAT000210,Mắt - Thị lực,mat-thi-luc,2
+CAT000226,CAT000210,Tiêu hóa,tieu-hoa,2
+CAT000227,CAT000226,Men vi sinh,men-vi-sinh,3
+CAT000228,CAT000226,Hỗ trợ ăn ngon,ho-tro-an-ngon,3
+CAT000229,CAT000226,Đại tràng,dai-trang,3
+CAT000230,CAT000226,Khó tiêu,kho-tieu,3
+CAT000231,CAT000226,"Nhuận tràng, táo bón",nhuan-trang-tao-bon,3
+CAT000232,CAT000226,"Dạ dày, tá tràng",da-day-ta-trang,3
+CAT000233,CAT000210,Thần kinh não,than-kinh-nao,2
+CAT000234,CAT000233,Hoạt huyết,hoat-huyet,3
+CAT000235,CAT000233,Bổ não - cải thiện trí nhớ,bo-nao-cai-thien-tri-nho,3
+CAT000236,CAT000233,Hỗ trợ giấc ngủ,ho-tro-giac-ngu,3
+CAT000237,CAT000233,Tuần hoàn máu não,tuan-hoan-mau-nao,3
+CAT000238,CAT000210,Hỗ trợ làm đẹp,ho-tro-lam-dep,2
+CAT000239,CAT000238,Chăm sóc tóc,cham-soc-toc,3
+CAT000240,CAT000238,Chăm sóc da,cham-soc-da,3
+CAT000241,CAT000210,Đường huyết - Tiểu đường,duong-huyet-tieu-duong,2
+CAT000242,CAT000210,Tim mạch - Huyết áp,tim-mach-huyet-ap,2
+CAT000243,CAT000242,Suy giãn tĩnh mạch,suy-gian-tinh-mach,3
+CAT000244,CAT000242,Mỡ máu - Cholesterol,mo-mau-cholesterol,3
+CAT000245,CAT000242,Huyết áp,huyet-ap,3
+CAT000246,CAT000210,Hô hấp - Tai mũi họng,ho-hap-tai-mui-hong,2
+CAT000247,CAT000210,Cơ xương khớp,co-xuong-khop,2
+CAT000248,CAT000247,Hỗ trợ xương khớp,ho-tro-xuong-khop,3
+CAT000249,CAT000247,Hỗ trợ gout,ho-tro-gout,3
+CAT000250,CAT000210,Gan - Mật,gan-mat,2
+CAT000251,CAT000250,Bổ gan,bo-gan,3
+CAT000252,CAT000250,Giải rượu bia,giai-ruou-bia,3
+CAT000253,CAT000250,Chức năng gan,chuc-nang-gan,3
+CAT000254,CAT000210,Thận - Tiết niệu,than-tiet-nieu,2
+CAT000255,CAT000210,Sữa,sua,2
+CAT000256,CAT000255,Sữa pha sẵn,sua-pha-san,3
+CAT000257,CAT000255,Sữa bột,sua-bot,3

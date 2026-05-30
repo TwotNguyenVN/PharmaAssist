@@ -482,12 +482,12 @@ model ProductTagRelation {
 }
 
 model ProductDocument {
-  id        Int      @id @default(autoincrement())
-  productId Int      @map("product_id")
-  fileUrl   String   @map("file_url")
-  fileType  String   @map("file_type") // PDF, IMAGE, DOC
-  title     String
-  createdAt DateTime @default(now()) @map("created_at")
+  id           Int      @id @default(autoincrement())
+  productId    Int      @map("product_id")
+  documentType String   @map("document_type") // OVERVIEW, INDICATIONS, DOSAGE, PRECAUTIONS, STORAGE, SIDE_EFFECTS
+  content      String?  @db.Text
+  title        String?
+  createdAt    DateTime @default(now()) @map("created_at")
 
   product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
 
@@ -499,17 +499,18 @@ model ProductDocument {
 // =========================================================================
 
 model Medicine {
-  id                  Int      @id @default(autoincrement())
-  productId           Int      @map("product_id")
-  medicineCode        String   @unique @map("medicine_code")
-  registrationNumber  String?  @map("registration_number")
-  dosageFormId        Int      @map("dosage_form_id")
-  medicineUnitId      Int      @map("medicine_unit_id")
+  id                   Int      @id @default(autoincrement())
+  productId            Int      @map("product_id")
+  medicineCode         String   @unique @map("medicine_code")
+  registrationNumber   String?  @map("registration_number")
+  dosageFormId         Int      @map("dosage_form_id")
+  medicineUnitId       Int      @map("medicine_unit_id")
   requiresPrescription Boolean  @default(false) @map("requires_prescription")
-  usageNote           String?  @map("usage_note")
-  storageInstruction  String?  @map("storage_instruction")
-  status              String   @default("ACTIVE")
-  createdAt           DateTime @default(now()) @map("created_at")
+  shelfLifeMonths      Int?     @map("shelf_life_months")
+  usageNote            String?  @map("usage_note")
+  storageInstruction   String?  @map("storage_instruction")
+  status               String   @default("ACTIVE")
+  createdAt            DateTime @default(now()) @map("created_at")
 
   product    Product    @relation(fields: [productId], references: [id], onDelete: Cascade)
   dosageForm DosageForm @relation(fields: [dosageFormId], references: [id])

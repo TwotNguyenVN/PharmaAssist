@@ -1,0 +1,59 @@
+country_code,country_name,country_slug
+CTY000001,Nhật Bản,nhat-ban
+CTY000002,Việt Nam,viet-nam
+CTY000003,Anh,anh
+CTY000004,Hàn Quốc,han-quoc
+CTY000005,Thái Lan,thai-lan
+CTY000006,Indonesia,indonesia
+CTY000007,Đức,duc
+CTY000008,Thụy Sĩ,thuy-si
+CTY000009,Malaysia,malaysia
+CTY000010,Hoa Kỳ,hoa-ky
+CTY000011,Singapore,singapore
+CTY000012,Tây Ban Nha,tay-ban-nha
+CTY000013,Pakistan,pakistan
+CTY000014,Pháp,phap
+CTY000015,Ấn Độ,an-do
+CTY000016,Mỹ,my
+CTY000017,Ba Lan,ba-lan
+CTY000018,Ý,y
+CTY000019,Hà Lan,ha-lan
+CTY000020,Úc,uc
+CTY000021,Ireland,ireland
+CTY000022,Thổ Nhĩ Kỳ,tho-nhi-ky
+CTY000023,Nam Phi,nam-phi
+CTY000024,Bulgaria,bulgaria
+CTY000025,Đan Mạch,dan-mach
+CTY000026,Hy Lạp,hy-lap
+CTY000027,Đài Loan,dai-loan
+CTY000028,Trung Quốc,trung-quoc
+CTY000029,Cộng hòa Séc,cong-hoa-sec
+CTY000030,Ukraina,ukraina
+CTY000031,Hungary,hungary
+CTY000032,Cộng hòa Dominica,cong-hoa-dominica
+CTY000033,Moldova,moldova
+CTY000034,Liên Bang Nga,lien-bang-nga
+CTY000035,Bồ Đào Nha,bo-dao-nha
+CTY000036,Romania,romania
+CTY000037,Bangladesh,bangladesh
+CTY000038,Bắc Síp,bac-sip
+CTY000039,Síp,sip
+CTY000040,Bỉ,bi
+CTY000041,Ai Cập,ai-cap
+CTY000042,Slovenia,slovenia
+CTY000043,Canada,canada
+CTY000044,Litva,litva
+CTY000045,Belarus,belarus
+CTY000046,Latvia,latvia
+CTY000047,Argentina,argentina
+CTY000048,Cộng hòa Macedonia,cong-hoa-macedonia
+CTY000049,Swaziland,swaziland
+CTY000050,Áo,ao
+CTY000051,Estonia,estonia
+CTY000052,Chile,chile
+CTY000053,Thụy Điển,thuy-dien
+CTY000054,Philippines,philippines
+CTY000055,Uruguay,uruguay
+CTY000056,New Zealand,new-zealand
+CTY000057,Slovakia,slovakia
+CTY000058,Hồng Kông,hong-kong

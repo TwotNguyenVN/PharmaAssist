@@ -1,0 +1,177 @@
+dosage_form_code,dosage_form_name,dosage_form_slug
+DF000001,Viên ngậm,vien-ngam
+DF000002,Bột,bot
+DF000003,Túi lọc,tui-loc
+DF000004,Dung dịch,dung-dich
+DF000005,Dạng bột,dang-bot
+DF000006,Dung dịch uống,dung-dich-uong
+DF000007,Viên nén,vien-nen
+DF000008,Gel,gel
+DF000009,Cao,cao
+DF000010,Dạng xịt,dang-xit
+DF000011,Kem,kem
+DF000012,Dạng dầu,dang-dau
+DF000013,Dạng kem,dang-kem
+DF000014,Serum,serum
+DF000015,Nhũ tương (Gel),nhu-tuong-gel
+DF000016,Kem bôi da,kem-boi-da
+DF000017,Dạng bọt,dang-bot
+DF000018,Dạng sáp,dang-sap
+DF000019,Miếng dán,mieng-dan
+DF000020,Ống hít,ong-hit
+DF000021,Dung dịch nhỏ mắt,dung-dich-nho-mat
+DF000022,Dung dịch xịt mũi,dung-dich-xit-mui
+DF000023,Viên đặt,vien-dat
+DF000024,Dung dịch xịt,dung-dich-xit
+DF000025,Nhũ tương,nhu-tuong
+DF000026,Viên nén bao phim,vien-nen-bao-phim
+DF000027,Thuốc mỡ,thuoc-mo
+DF000028,Bột pha hỗn dịch uống,bot-pha-hon-dich-uong
+DF000029,Viên nén nhai,vien-nen-nhai
+DF000030,Viên nhai,vien-nhai
+DF000031,Viên nén đặt âm đạo,vien-nen-dat-am-dao
+DF000032,Dung dịch dùng ngoài,dung-dich-dung-ngoai
+DF000033,Viên nang cứng,vien-nang-cung
+DF000034,Bột pha dung dịch uống,bot-pha-dung-dich-uong
+DF000035,viên nén dài bao phim,vien-nen-dai-bao-phim
+DF000036,Viên nang,vien-nang
+DF000037,Cốm pha dung dịch uống,com-pha-dung-dich-uong
+DF000038,Cốm pha hỗn dịch uống,com-pha-hon-dich-uong
+DF000039,Viên nén phân tán,vien-nen-phan-tan
+DF000040,Thuốc mỡ tra mắt,thuoc-mo-tra-mat
+DF000041,Viên nén giải phóng biến đổi,vien-nen-giai-phong-bien-doi
+DF000042,Viên nén không bao,vien-nen-khong-bao
+DF000043,Hỗn dịch,hon-dich
+DF000044,Viên nén bao phim giải phóng chậm,vien-nen-bao-phim-giai-phong-cham
+DF000045,Bột pha tiêm,bot-pha-tiem
+DF000046,Cốm pha huyền dịch uống,com-pha-huyen-dich-uong
+DF000047,Viên bao đường,vien-bao-duong
+DF000048,Dung dịch nhỏ tai,dung-dich-nho-tai
+DF000049,Thuốc bột pha hỗn dịch uống,thuoc-bot-pha-hon-dich-uong
+DF000050,Dung dịch tiêm,dung-dich-tiem
+DF000051,Viên nén bao đường,vien-nen-bao-duong
+DF000052,Viên nén tan trong miệng,vien-nen-tan-trong-mieng
+DF000053,Thuốc cốm,thuoc-com
+DF000054,Dung dịch tiêm truyền,dung-dich-tiem-truyen
+DF000055,Bột đông khô pha tiêm,bot-dong-kho-pha-tiem
+DF000056,Cốm,com
+DF000057,Bột rơ miệng,bot-ro-mieng
+DF000058,Bột đông khô pha dung dịch tiêm,bot-dong-kho-pha-dung-dich-tiem
+DF000059,Thuốc tiêm,thuoc-tiem
+DF000060,Viên nén bao phim phóng thích chậm,vien-nen-bao-phim-phong-thich-cham
+DF000061,Dung dịch để tiêm trong bơm tiêm đóng sẵn,dung-dich-de-tiem-trong-bom-tiem-dong-san
+DF000062,Dung dịch đậm đặc để pha dung dịch tiêm truyền,dung-dich-dam-dac-de-pha-dung-dich-tiem-truyen
+DF000063,Viên nang mềm,vien-nang-mem
+DF000064,Hỗn dịch tiêm,hon-dich-tiem
+DF000065,Bột pha tiêm truyền,bot-pha-tiem-truyen
+DF000066,Hoàn cứng,hoan-cung
+DF000067,Viên nén bao phim phóng thích muộn,vien-nen-bao-phim-phong-thich-muon
+DF000068,Hoàn mềm,hoan-mem
+DF000069,Siro,siro
+DF000070,Viên nén bao phim giải phóng có biến đổi,vien-nen-bao-phim-giai-phong-co-bien-doi
+DF000071,Viên nén bao phim tác dụng kéo dài,vien-nen-bao-phim-tac-dung-keo-dai
+DF000072,Viên nén bao phim giải phóng kéo dài,vien-nen-bao-phim-giai-phong-keo-dai
+DF000073,Viên bao,vien-bao
+DF000074,Viên nén phóng thích kéo dài,vien-nen-phong-thich-keo-dai
+DF000075,Viên nén bao phim tan trong ruột,vien-nen-bao-phim-tan-trong-ruot
+DF000076,Viên hoàn giọt,vien-hoan-giot
+DF000077,Viên nén bao phim phóng thích kéo dài,vien-nen-bao-phim-phong-thich-keo-dai
+DF000078,Viên nén giải phóng kéo dài,vien-nen-giai-phong-keo-dai
+DF000079,Viên nén bao phim phóng thích có kiểm soát,vien-nen-bao-phim-phong-thich-co-kiem-soat
+DF000080,Viên nén tác dụng kéo dài,vien-nen-tac-dung-keo-dai
+DF000081,Viên nén giải phóng chậm,vien-nen-giai-phong-cham
+DF000082,Nhũ tương uống nhỏ giọt,nhu-tuong-uong-nho-giot
+DF000083,Viên nang giải phóng chậm,vien-nang-giai-phong-cham
+DF000084,Viên nén kháng acid dạ dày,vien-nen-khang-acid-da-day
+DF000085,Viên nén bao phim giải phóng có kiểm soát,vien-nen-bao-phim-giai-phong-co-kiem-soat
+DF000086,Viên nén phóng thích chậm,vien-nen-phong-thich-cham
+DF000087,Hỗn dịch uống,hon-dich-uong
+DF000088,Viên nén bao tan trong ruột,vien-nen-bao-tan-trong-ruot
+DF000089,Viên nén phân tán tan trong miệng,vien-nen-phan-tan-tan-trong-mieng
+DF000090,Viên nén hòa tan nhanh,vien-nen-hoa-tan-nhanh
+DF000091,Viên nén bao,vien-nen-bao
+DF000092,Dung dịch bơm trực tràng,dung-dich-bom-truc-trang
+DF000093,Viên nén bao đường tan trong ruột,vien-nen-bao-duong-tan-trong-ruot
+DF000094,Hỗn dịch uống nhỏ giọt,hon-dich-uong-nho-giot
+DF000095,Gel uống,gel-uong
+DF000096,Thuốc bột uống,thuoc-bot-uong
+DF000097,Viên nang cứng chứa vi hạt bao tan trong ruột,vien-nang-cung-chua-vi-hat-bao-tan-trong-ruot
+DF000098,Viên nang cứng chứa hạt bao tan trong ruột,vien-nang-cung-chua-hat-bao-tan-trong-ruot
+DF000099,Viên nang kháng acid dạ dày,vien-nang-khang-acid-da-day
+DF000100,Viên nang cứng chứa pellet bao tan trong ruột,vien-nang-cung-chua-pellet-bao-tan-trong-ruot
+DF000101,Viên nén tan trong ruột,vien-nen-tan-trong-ruot
+DF000102,Viên nén kháng dịch dạ dày,vien-nen-khang-dich-da-day
+DF000103,Dung dịch thụt trực tràng,dung-dich-thut-truc-trang
+DF000104,Cốm kháng dịch dạ dày để pha hỗn dịch uống,com-khang-dich-da-day-de-pha-hon-dich-uong
+DF000105,Viên nén ngậm,vien-nen-ngam
+DF000106,Viên bao phim,vien-bao-phim
+DF000107,Viên nang cứng chứa vi nang bao tan trong ruột,vien-nang-cung-chua-vi-nang-bao-tan-trong-ruot
+DF000108,Viên nén bao phim kháng dịch vị,vien-nen-bao-phim-khang-dich-vi
+DF000109,Hạt cốm phóng thích kéo dài,hat-com-phong-thich-keo-dai
+DF000110,Dung dịch đậm đặc pha tiêm truyền,dung-dich-dam-dac-pha-tiem-truyen
+DF000111,Viên bao tan trong ruột,vien-bao-tan-trong-ruot
+DF000112,Viên nén bao tan ở ruột,vien-nen-bao-tan-o-ruot
+DF000113,Viên nén bao phim chứa vi hạt bao tan trong ruột,vien-nen-bao-phim-chua-vi-hat-bao-tan-trong-ruot
+DF000114,Cao lỏng,cao-long
+DF000115,Lotion bôi da,lotion-boi-da
+DF000116,Kem bôi ngoài,kem-boi-ngoai
+DF000117,Dung dịch sát trùng âm đạo,dung-dich-sat-trung-am-dao
+DF000118,Bột pha dung dịch dùng ngoài,bot-pha-dung-dich-dung-ngoai
+DF000119,Gạc mỡ,gac-mo
+DF000120,Cao dán,cao-dan
+DF000121,Khí dung,khi-dung
+DF000122,Viên nén sủi bọt,vien-nen-sui-bot
+DF000123,Viên sủi,vien-sui
+DF000124,Viên hoàn mềm,vien-hoan-mem
+DF000125,Nhũ tương tiêm truyền,nhu-tuong-tiem-truyen
+DF000126,Viên nang cứng (nâu-xanh),vien-nang-cung-nau-xanh
+DF000127,Dung dịch truyền tĩnh mạch,dung-dich-truyen-tinh-mach
+DF000128,Dung dịch tiêm nội nhãn,dung-dich-tiem-noi-nhan
+DF000129,Viên nang cứng giải phóng kéo dài,vien-nang-cung-giai-phong-keo-dai
+DF000130,Thuốc tiêm đông khô,thuoc-tiem-dong-kho
+DF000131,Thuốc cấy dưới da giải phóng kéo dài chứa trong bơm tiêm,thuoc-cay-duoi-da-giai-phong-keo-dai-chua-trong-bom-tiem
+DF000132,Dung dịch pha tiêm,dung-dich-pha-tiem
+DF000133,Bột sủi bọt,bot-sui-bot
+DF000134,Viên đạn,vien-dan
+DF000135,Bột sủi pha dung dịch uống,bot-sui-pha-dung-dich-uong
+DF000136,Cốm sủi bọt,com-sui-bot
+DF000137,Viên nén không tan trong dạ dày,vien-nen-khong-tan-trong-da-day
+DF000138,Bột đông khô và dung môi pha dung dịch tiêm,bot-dong-kho-va-dung-moi-pha-dung-dich-tiem
+DF000139,Dung dịch khí dung,dung-dich-khi-dung
+DF000140,Hỗn dịch xịt qua bình định liều điều áp,hon-dich-xit-qua-binh-dinh-lieu-dieu-ap
+DF000141,Thuốc bột hít phân liều,thuoc-bot-hit-phan-lieu
+DF000142,Hỗn dịch khí dung,hon-dich-khi-dung
+DF000143,Thuốc xịt dạng phun mù định liều,thuoc-xit-dang-phun-mu-dinh-lieu
+DF000144,Hỗn dịch xịt mũi,hon-dich-xit-mui
+DF000145,Thuốc hít khí dung,thuoc-hit-khi-dung
+DF000146,Dung dịch hít,dung-dich-hit
+DF000147,Dung dịch để hít,dung-dich-de-hit
+DF000148,Bột hít chứa trong viên nang cứng,bot-hit-chua-trong-vien-nang-cung
+DF000149,Thuốc phun mù,thuoc-phun-mu
+DF000150,"Dung dịch nhỏ mắt, mũi",dung-dich-nho-mat-mui
+DF000151,Dung dịch nhỏ mũi,dung-dich-nho-mui
+DF000152,Dung  dịch nhỏ mũi,dung-dich-nho-mui
+DF000153,Dung dịch súc họng súc miệng,dung-dich-suc-hong-suc-mieng
+DF000154,Dung dịch súc miệng,dung-dich-suc-mieng
+DF000155,Dung dịch nhỏ mắt dạng tép,dung-dich-nho-mat-dang-tep
+DF000156,Hỗn dịch nhỏ mắt,hon-dich-nho-mat
+DF000157,Gel bôi niêm mạc miệng,gel-boi-niem-mac-mieng
+DF000158,"Dung dịch nhỏ mắt, tai",dung-dich-nho-mat-tai
+DF000159,Bột pha dung dịch nhỏ tai,bot-pha-dung-dich-nho-tai
+DF000160,Bình khí dung xịt mũi,binh-khi-dung-xit-mui
+DF000161,Bột pha dung dịch đậm đặc để pha dung dịch tiêm truyền,bot-pha-dung-dich-dam-dac-de-pha-dung-dich-tiem-truyen
+DF000162,Dung dịch tiêm dầu,dung-dich-tiem-dau
+DF000163,Viên nang mềm đặt âm đạo,vien-nang-mem-dat-am-dao
+DF000164,Viên đặt âm đạo,vien-dat-am-dao
+DF000165,Nhũ dịch dùng ngoài,nhu-dich-dung-ngoai
+DF000166,Viên đạn đặt âm đạo,vien-dan-dat-am-dao
+DF000167,Viên nang phóng thích có điều chỉnh,vien-nang-phong-thich-co-dieu-chinh
+DF000168,Thuốc bột dùng ngoài,thuoc-bot-dung-ngoai
+DF000169,Viên nén giải phóng có kiểm soát,vien-nen-giai-phong-co-kiem-soat
+DF000170,Viên trứng,vien-trung
+DF000171,Viên nén phóng thích có kiểm soát,vien-nen-phong-thich-co-kiem-soat
+DF000172,Hỗn dịch tiêm trong bút tiêm nạp sẵn,hon-dich-tiem-trong-but-tiem-nap-san
+DF000173,Dung dịch tiêm trong bút tiêm nạp sẵn,dung-dich-tiem-trong-but-tiem-nap-san
+DF000174,Viên nén phóng thích có biến đổi,vien-nen-phong-thich-co-bien-doi
+DF000175,Viên nén giải phóng có biến đổi,vien-nen-giai-phong-co-bien-doi
+DF000176,Dạng lỏng,dang-long
